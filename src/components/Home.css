@@ -2,9 +2,10 @@
 
 /* Hero Section */
 .hero {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+  justify-content: center;
   align-items: center;
   margin-bottom: 80px;
   padding: 40px 0;
