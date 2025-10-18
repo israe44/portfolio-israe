@@ -1,0 +1,80 @@
+/* Resume Page Styles */
+.resume.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.resume .container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.resume .page-title {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.download-resume {
+  display: inline-block;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 50px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(126, 58, 242, 0.3);
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(126, 58, 242, 0.4);
+  background: var(--primary-color);
+}
+
+.download-btn:active {
+  transform: translateY(-1px);
+}
+
+.download-btn svg {
+  font-size: 1.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .resume .page-title {
+    font-size: 2.2rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .download-btn {
+    padding: 18px 40px;
+    font-size: 1.1rem;
+  }
+}

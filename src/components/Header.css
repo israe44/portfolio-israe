@@ -1,0 +1,209 @@
+/* src/components/Header.css */
+.header {
+    background-color: rgba(15, 7, 25, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(126, 58, 242, 0.2);
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+  
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .logo span {
+    color: var(--secondary-color);
+    margin-left: 2px;
+  }
+  
+  .logo-icon {
+    margin-right: 12px;
+    color: var(--secondary-color);
+    font-size: 24px;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: var(--secondary-color);
+    background: rgba(126, 58, 242, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .nav-list li.active .nav-link {
+    color: var(--secondary-color);
+    background: rgba(126, 58, 242, 0.2);
+    box-shadow: 0 4px 15px rgba(126, 58, 242, 0.3);
+  }
+  
+  .nav-list li.active .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--secondary-color);
+    border-radius: 1px;
+  }
+  
+  .nav-icon {
+    font-size: 16px;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+  
+  .mobile-menu-toggle:hover {
+    background: rgba(126, 58, 242, 0.1);
+    color: var(--secondary-color);
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 968px) {
+    .header-container {
+      padding: 12px 0;
+    }
+  
+    .mobile-menu-toggle {
+      display: block;
+    }
+  
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--primary-color);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      border-top: 1px solid rgba(126, 58, 242, 0.2);
+    }
+  
+    .nav-open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      padding: 20px;
+      gap: 5px;
+    }
+  
+    .nav-link {
+      display: flex;
+      width: 100%;
+      text-align: left;
+      padding: 15px 20px;
+      border-radius: 10px;
+      justify-content: flex-start;
+    }
+  
+    .nav-list li.active .nav-link::after {
+      left: 20px;
+      transform: none;
+      width: 3px;
+      height: 20px;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .logo {
+      font-size: 24px;
+    }
+  
+    .logo-icon {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 10px 0;
+    }
+  
+    .logo {
+      font-size: 22px;
+    }
+  
+    .nav-link {
+      padding: 12px 16px;
+      font-size: 15px;
+    }
+  
+    .nav-icon {
+      font-size: 14px;
+    }
+  }
+  
+  /* Animation for logo */
+  @keyframes logoPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .logo:active {
+    animation: logoPulse 0.3s ease;
+  }
