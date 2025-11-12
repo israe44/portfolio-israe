@@ -8,10 +8,10 @@ const Header = ({ activePage, setActivePage }) => {
 
   const menuItems = [
     { id: 'home', label: 'Home', icon: FaHome },
-    { id: 'algorithms', label: 'Algorithms', icon: FaProjectDiagram },
+    { id: 'about', label: 'About', icon: FaProjectDiagram },
     { id: 'projects', label: 'Projects', icon: FaLaptopCode },
     { id: 'games', label: 'Games', icon: FaGamepad },
-    { id: 'resume', label: 'Resume', icon: FaFileAlt },
+    
     { id: 'certificates', label: 'Certificates', icon: FaAward }
   ];
 

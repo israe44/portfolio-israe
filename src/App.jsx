@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
-import Algorithms from './components/Algorithms';
+import About from './components/About';
 import Projects from './components/Projects';
 import Games from './components/Games';
-import Resume from './components/Resume';
+
 import Certificates from './components/Certificates';
 
 function App() {
@@ -28,14 +28,14 @@ function App() {
     switch (activePage) {
       case 'home':
         return <Home />;
-      case 'algorithms':
-        return <Algorithms />;
+      case 'about':
+        return <About />;
       case 'projects':
         return <Projects />;
       case 'games':
         return <Games />;
-      case 'resume':
-        return <Resume />;
+      
+       
       case 'certificates':
         return <Certificates />;
       default:

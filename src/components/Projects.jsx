@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLaptopCode, FaFilePowerpoint, FaDownload } from 'react-icons/fa';
+import { FaLaptopCode, FaDownload, FaGithub, FaFigma } from 'react-icons/fa';
 import './Projects.css';
 
 const Projects = () => {
@@ -9,20 +9,58 @@ const Projects = () => {
       title: 'Static Gym Website',
       description: 'My first ever website.',
       icon: FaLaptopCode,
+      image: `${process.env.PUBLIC_URL}/jim.png`,
       status: 'completed',
       tags: ['Html', 'CSS', 'JavaScript'],
       github: 'https://github.com/israe44/Static-Gym-website',
-      demo: 'https://israe44.github.io/Static-Gym-website/'
+      demo: 'https://israe44.github.io/Static-Gym-website/',
+      buttons: [
+        { text: 'View Project', icon: FaLaptopCode, action: 'demo' },
+        { text: 'View Code', icon: FaGithub, action: 'github' }
+      ]
     },
     {
       id: 2,
-      title: 'Tkinter Python GUI Presentation',
-      description: 'Comprehensive presentation on creating graphical interfaces in Python using Tkinter. Covers widgets, event handling, file management, and advanced features.',
-      icon: FaFilePowerpoint,
+      title: 'Quote Generator',
+      description: 'Forget about work and cheer yourself up with inspirational quotes.',
+      icon: FaLaptopCode,
+      image: `${process.env.PUBLIC_URL}/image2.png`, // You can add an image for this project
       status: 'completed',
-      tags: ['Python', 'Tkinter', 'GUI', 'Presentation', 'UI/UX'],
-      github: 'https://docs.google.com/presentation/d/11xXlIeN16n2vmwDUKFsjeWka-J_9-jZiCyrsXMCiUZg/export/pptx',
-      demo: 'https://docs.google.com/presentation/d/11xXlIeN16n2vmwDUKFsjeWka-J_9-jZiCyrsXMCiUZg/preview'
+      tags: ['React', 'JavaScript', 'CSS',],
+      github: 'https://github.com/israe44/quote-generator',
+      demo: 'https://israe44.github.io/quote-generator/',
+      buttons: [
+        { text: 'View Demo', icon: FaLaptopCode, action: 'demo' },
+        { text: 'View Code', icon: FaGithub, action: 'github' }
+      ]
+    },
+    {
+      id: 3,
+      title: 'Dynamic Website',
+      description: 'A dynamic website with interactive features and functionality.',
+      icon: FaLaptopCode,
+      image: `${process.env.PUBLIC_URL}/php.webp`,
+      status: 'completed',
+      tags: ['Html', 'CSS', 'JavaScript', 'Dynamic'],
+      github: 'https://github.com/israe44/-Dynamic-WebSite.git',
+      demo: '#',
+      buttons: [
+        { text: 'View Repository', icon: FaGithub, action: 'github' }
+      ]
+    },
+    {
+      id: 4,
+      title: 'UI/UX Design Project',
+      description: 'Modern user interface and experience design prototypes created in Figma.',
+      icon: FaFigma,
+      image: `${process.env.PUBLIC_URL}/figma.png`, // You can add your Figma project image
+      status: 'completed',
+      tags: ['Figma', 'UI/UX', 'Wireframing', 'Prototyping', 'Design System'],
+      github: '#',
+      demo: 'https://www.figma.com/community/file/1567526773725094928', // Replace with your actual Figma link
+      buttons: [
+        { text: 'View Figma Project', icon: FaFigma, action: 'demo' }
+      ]
     }
   ];
 
@@ -32,17 +70,9 @@ const Projects = () => {
     planned: '#9C27B0'
   };
 
-  // Function to handle online viewing
-  const handleViewDemo = (demoUrl) => {
-    if (demoUrl !== '#') {
-      window.open(demoUrl, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  // Function to handle download
-  const handleDownload = (downloadUrl) => {
-    if (downloadUrl !== '#') {
-      window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+  const handleButtonClick = (action, url) => {
+    if (url !== '#') {
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -58,11 +88,11 @@ const Projects = () => {
             <span className="stat-label">Completed</span>
           </div>
           <div className="project-stat">
-            <span className="stat-number">0</span>
+            <span className="stat-number">2</span>
             <span className="stat-label">In Progress</span>
           </div>
           <div className="project-stat">
-            <span className="stat-number">0</span>
+            <span className="stat-number">4</span>
             <span className="stat-label">Planned</span>
           </div>
         </div>
@@ -70,6 +100,7 @@ const Projects = () => {
         <div className="projects-grid">
           {projects.map(project => (
             <div key={project.id} className="project-card card">
+          
               <div className="project-header">
                 <div className="project-icon">
                   <project.icon />
@@ -82,6 +113,13 @@ const Projects = () => {
                 </div>
               </div>
 
+              {project.image && (
+                <div className="project-image">
+                  <img src={project.image} alt={project.title} />
+                </div>
+              )}
+
+           
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
 
@@ -92,20 +130,21 @@ const Projects = () => {
               </div>
 
               <div className="project-actions">
-                <button 
-                  className="btn btn-primary"
-                  onClick={() => handleViewDemo(project.demo)}
-                  disabled={project.demo === '#'}
-                >
-                  <FaLaptopCode /> View Presentation
-                </button>
-                <button 
-                  className="btn btn-outline"
-                  onClick={() => handleDownload(project.github)}
-                  disabled={project.github === '#'}
-                >
-                  <FaDownload /> Download PPT
-                </button>
+                {project.buttons.map((button, index) => {
+                  const url = button.action === 'demo' ? project.demo : project.github;
+                  const isSingleButton = project.buttons.length === 1;
+                  
+                  return (
+                    <button 
+                      key={index}
+                      className={`btn ${isSingleButton ? 'btn-primary full-width' : index === 0 ? 'btn-primary' : 'btn-outline'}`}
+                      onClick={() => handleButtonClick(button.action, url)}
+                      disabled={url === '#'}
+                    >
+                      <button.icon /> {button.text}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))}

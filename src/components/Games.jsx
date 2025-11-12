@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGamepad, FaCalculator, FaChess, FaBrain, FaQuestionCircle } from 'react-icons/fa';
+import { FaGamepad, FaCalculator, FaChess, FaBrain, FaQuestionCircle, FaCode } from 'react-icons/fa';
 import './Games.css';
 
 const Games = () => {
@@ -10,6 +10,7 @@ const Games = () => {
     { id: 'tictactoe', name: 'Tic-Tac-Toe', icon: FaChess, description: 'Classic X and O game with win detection' },
     { id: 'memory', name: 'Memory Game', icon: FaBrain, description: 'Test your memory by matching pairs of cards' },
     { id: 'quiz', name: 'Quiz Game', icon: FaQuestionCircle, description: 'Test your knowledge with this interactive quiz' },
+    { id: 'pythonquiz', name: 'Python Quiz', icon: FaCode, description: 'Test your Python programming skills with algorithm challenges' },
   ];
 
   const renderGame = () => {
@@ -22,6 +23,8 @@ const Games = () => {
         return <MemoryGame />;
       case 'quiz':
         return <QuizGame />;
+      case 'pythonquiz':
+        return <PythonQuizGame />;
       default:
         return <CalculatorGame />;
     }
@@ -236,7 +239,7 @@ const TicTacToeGame = () => {
       <div className="game-status">
         {winner ? `Winner: ${winner}!` : isBoardFull ? "It's a Draw!" : `Player ${isXNext ? 'X' : 'O'}'s turn`}
       </div>
-      <button onClick={resetGame} style={{marginTop: '20px', padding: '10px 20px', cursor: 'pointer'}}>Reset Game</button>
+      <button className="game-reset-btn" onClick={resetGame}>Reset Game</button>
     </div>
   );
 };
@@ -299,7 +302,7 @@ const MemoryGame = () => {
       <div className="game-status">
         Matches: {matched.length / 2}/8 | Moves: {moves}
       </div>
-      <button onClick={initializeGame} style={{marginTop: '20px', padding: '10px 20px', cursor: 'pointer'}}>New Game</button>
+      <button className="game-reset-btn" onClick={initializeGame}>New Game</button>
     </div>
   );
 };
@@ -310,7 +313,7 @@ const QuizGame = () => {
     {
       question: "What does a Full Stack Developer do?",
       options: ["Creates mobile apps only", "Manages computer networks", "Works on both front-end and back-end", "Only designs websites"],
-      correct: 1
+      correct: 2
     },
     {
       question: "What is an algorithm?",
@@ -331,7 +334,7 @@ const QuizGame = () => {
         "It cannot be used for web development",
         "It emphasizes readability and simplicity",
         "It is only used for mobile apps"],
-      correct: 3
+      correct: 2
     },
     {
       question: "Which of the following is used in JavaScript to declare a variable?",
@@ -378,7 +381,7 @@ const QuizGame = () => {
           <h2>Quiz Complete!</h2>
           <p>Your Score: {score}/{questions.length}</p>
           <p>{score === questions.length ? "Perfect! 🎉" : score >= 3 ? "Great job! 👍" : "Keep practicing! 💪"}</p>
-          <button onClick={resetQuiz} style={{marginTop: '20px', padding: '10px 20px', cursor: 'pointer'}}>Play Again</button>
+          <button className="game-reset-btn" onClick={resetQuiz}>Play Again</button>
         </div>
       </div>
     );
@@ -412,6 +415,300 @@ const QuizGame = () => {
       </div>
     </div>
   );
+};
+
+const PythonQuizGame = () => {
+  const [gameState, setGameState] = useState('menu');
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [userAnswer, setUserAnswer] = useState('');
+  const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  const algorithms = [
+    { 
+      id: 1, 
+      title: 'Hello World', 
+      category: 'basics',
+      difficulty: 'easy',
+      problem: 'Afficher "bonjour" à l\'écran.',
+      explanation: 'Premier programme simple pour afficher du texte.',
+      solution: `print("bonjour")`,
+      question: 'Quel code affiche "bonjour" à l\'écran?',
+      options: [
+        'echo("bonjour")',
+        'print("bonjour")',
+        'console.log("bonjour")',
+        'System.out.println("bonjour")'
+      ]
+    },
+    { 
+      id: 2, 
+      title: 'Saisir et Afficher l\'Âge', 
+      category: 'basics',
+      difficulty: 'easy',
+      problem: 'Demander à l\'utilisateur de saisir son âge et l\'afficher.',
+      explanation: 'Utilisation de input() pour lire une entrée et conversion en entier avec int().',
+      solution: `n = int(input("écrire votre âge: "))  
+print("votre âge est :", n)`,
+      question: 'Comment demander et afficher l\'âge en Python?',
+      options: [
+        'age = input("Votre âge: ")',
+        'n = int(input("écrire votre âge: "))\nprint("votre âge est :", n)',
+        'scanf("%d", &age)',
+        'let age = prompt("Votre âge: ")'
+      ]
+    },
+    { 
+      id: 3, 
+      title: 'Parité d\'un Nombre', 
+      category: 'conditions',
+      difficulty: 'easy',
+      problem: 'Vérifier si un nombre est pair ou impair.',
+      explanation: 'Utilisation de l\'opérateur modulo (%) pour tester la divisibilité par 2.',
+      solution: `x = int(input("Entrer un nombre: "))  
+if x % 2 == 0:
+    print("Paire")  
+else:
+    print("Impaire")`,
+      question: 'Comment vérifier si un nombre est pair en Python?',
+      options: [
+        'if x / 2 == 0:',
+        'if x % 2 == 0:',
+        'if x mod 2 == 0:',
+        'if even(x):'
+      ]
+    },
+    { 
+      id: 4, 
+      title: 'Factorielle', 
+      category: 'loops',
+      difficulty: 'medium',
+      problem: 'Calculer la factorielle d\'un nombre (N!).',
+      explanation: 'Boucle while pour multiplier tous les nombres de 1 à N.',
+      solution: `x = int(input("Entrer un nombre: ")) 
+i = 1
+F = 1
+while i <= x:
+      F = F * i 
+      i += 1 
+print(F)`,
+      question: 'Quel code calcule correctement la factorielle?',
+      options: [
+        'for i in range(x): F *= i',
+        'while i <= x: F = F * i; i += 1',
+        'F = x * (x-1)',
+        'import math; math.factorial(x)'
+      ]
+    }
+  ];
+
+  const startGame = () => {
+    setGameState('playing');
+    setCurrentQuestion(0);
+    setScore(0);
+    setTimeLeft(60);
+    setShowResult(false);
+    setUserAnswer('');
+  };
+
+  const stopGame = () => {
+    setGameState('finished');
+  };
+
+  const checkAnswer = (selectedOption) => {
+    const currentAlgo = algorithms[currentQuestion];
+    const correct = selectedOption === currentAlgo.solution;
+    
+    setUserAnswer(selectedOption);
+    setIsCorrect(correct);
+    setShowResult(true);
+    
+    if (correct) {
+      setScore(prev => prev + 1);
+    }
+
+    setTimeout(() => {
+      if (currentQuestion < algorithms.length - 1) {
+        setCurrentQuestion(prev => prev + 1);
+        setShowResult(false);
+        setUserAnswer('');
+      } else {
+        stopGame();
+      }
+    }, 2000);
+  };
+
+  useEffect(() => {
+    let timer;
+    if (gameState === 'playing' && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            stopGame();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [gameState, timeLeft]);
+
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty) {
+      case 'easy': return '#4CAF50';
+      case 'medium': return '#FF9800';
+      case 'hard': return '#F44336';
+      default: return '#7e3af2';
+    }
+  };
+
+  if (gameState === 'menu') {
+    return (
+      <div className="python-quiz-game">
+        <div className="game-stats">
+          <div className="stat-card">
+          
+          
+          
+          </div>
+          <div className="stat-card">
+          
+          </div>
+         
+        </div>
+
+        <div className="game-description">
+          
+         
+        </div>
+
+        <button className="start-game-btn" onClick={startGame}>
+          Start Python Quiz
+        </button>
+      </div>
+    );
+  }
+
+  if (gameState === 'playing') {
+    const currentAlgo = algorithms[currentQuestion];
+    
+    return (
+      <div className="python-quiz-game">
+        <div className="game-header">
+          <div className="game-info">
+            <span className="question-counter">
+              Question {currentQuestion + 1}/{algorithms.length}
+            </span>
+            <span className="score">Score: {score}</span>
+            <span className="timer">
+              ⏱️ {timeLeft}s
+            </span>
+          </div>
+          <button className="stop-game-btn" onClick={stopGame}>
+            Stop Game
+          </button>
+        </div>
+
+        <div className="question-card">
+          <div className="question-header">
+            <span 
+              className="difficulty-badge"
+              style={{ backgroundColor: getDifficultyColor(currentAlgo.difficulty) }}
+            >
+              {currentAlgo.difficulty}
+            </span>
+            <span className="question-category">{currentAlgo.category}</span>
+          </div>
+
+          <h2 className="question-title">{currentAlgo.question}</h2>
+          
+          <div className="problem-description">
+            <p><strong>Problem:</strong> {currentAlgo.problem}</p>
+          </div>
+
+          <div className="quiz-options">
+            {currentAlgo.options.map((option, index) => (
+              <button
+                key={index}
+                className={`quiz-option ${showResult ? 
+                  (option === currentAlgo.solution ? 'correct' : 
+                   userAnswer === option ? 'incorrect' : '') : ''}`}
+                onClick={() => !showResult && checkAnswer(option)}
+                disabled={showResult}
+              >
+                <pre>{option}</pre>
+                {showResult && option === currentAlgo.solution && (
+                  <span className="result-icon correct">✓</span>
+                )}
+                {showResult && userAnswer === option && option !== currentAlgo.solution && (
+                  <span className="result-icon incorrect">✗</span>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {showResult && (
+            <div className={`result-feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
+              <h3>{isCorrect ? '🎉 Correct!' : '❌ Incorrect'}</h3>
+              <p><strong>Explanation:</strong> {currentAlgo.explanation}</p>
+              <div className="solution">
+                <strong>Solution:</strong>
+                <pre>{currentAlgo.solution}</pre>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  if (gameState === 'finished') {
+    return (
+      <div className="python-quiz-game">
+        <div className="quiz-result">
+          <div className="trophy-icon">🏆</div>
+          <h1>Quiz Complete!</h1>
+          
+          <div className="score-display">
+            <span className="final-score">{score}</span>
+            <span className="score-divider">/</span>
+            <span className="total-questions">{algorithms.length}</span>
+          </div>
+
+          <div className="score-percentage">
+            {Math.round((score / algorithms.length) * 100)}%
+          </div>
+
+          <div className="results-stats">
+            <div className="stat">
+              <span className="stat-value">{score}</span>
+              <span className="stat-label">Correct</span>
+            </div>
+            <div className="stat">
+              <span className="stat-value">{algorithms.length - score}</span>
+              <span className="stat-label">Wrong</span>
+            </div>
+            <div className="stat">
+              <span className="stat-value">{Math.round((score / algorithms.length) * 100)}%</span>
+              <span className="stat-label">Accuracy</span>
+            </div>
+          </div>
+
+          <div className="action-buttons">
+            <button className="game-reset-btn" onClick={startGame}>
+              Play Again
+            </button>
+            <button className="menu-btn" onClick={() => setGameState('menu')}>
+              Back to Menu
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Games;

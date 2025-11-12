@@ -6,9 +6,9 @@ const Home = () => {
   const features = [
     {
       icon: FaProjectDiagram,
-      title: 'Algorithms',
+      title: 'About',
       description: 'Interactive algorithm visualizations and implementations',
-      link: 'algorithms'
+      link: 'about'
     },
     {
       icon: FaLaptopCode,
@@ -43,20 +43,16 @@ const Home = () => {
         <section className="hero">
           <div className="hero-content">
             <h1 className="hero-title">
-              Hi, I'm <span className="highlight">Israe Yajib</span>
+              Hi, I'm <span className="highlight">Israe YAJIB</span>
             </h1>
-            <h2 className="hero-subtitle">Full Stack Developer | UI UX</h2>
+            <h2 className="hero-subtitle">Full Stack Web Developer | UI UX Designer</h2>
             <p className="hero-description">
               Passionate about creating innovative solutions and bringing ideas to life through code and design. <br />
               Explore my portfolio to see my projects.
             </p>
             <div className="hero-actions">
-              <button
-                className="btn btn-primary"
-                onClick={() => alert('Thank You There🥰​!')}
-              >
-                Get In Touch
-              </button>
+              
+           
               
             </div>
           </div>
@@ -72,7 +68,7 @@ const Home = () => {
                 />
               </div>
               <div className="profile-info">
-                <h3>Full Stack Developer</h3>
+                <h3>Full Stack Web Developer</h3>
                 <p>Front End • Back End</p>
               </div>
             </div>
