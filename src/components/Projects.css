@@ -359,3 +359,34 @@
     height: 150px;
   }
 }
+/* Mobile Projects Fix */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .project-stat {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 15px;
+  }
+  
+  .project-actions .btn {
+    width: 100%;
+  }
+}
