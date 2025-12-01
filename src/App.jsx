@@ -1,18 +1,18 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Games from './components/Games';
-
 import Certificates from './components/Certificates';
 
 function App() {
   const [activePage, setActivePage] = useState('home');
 
-  // Save current page to localStorage
+  // Load saved page
   useEffect(() => {
     const savedPage = localStorage.getItem('currentPage');
     if (savedPage) {
@@ -20,6 +20,7 @@ function App() {
     }
   }, []);
 
+  // Save current page
   useEffect(() => {
     localStorage.setItem('currentPage', activePage);
   }, [activePage]);
@@ -34,8 +35,6 @@ function App() {
         return <Projects />;
       case 'games':
         return <Games />;
-      
-       
       case 'certificates':
         return <Certificates />;
       default:
@@ -46,6 +45,7 @@ function App() {
   return (
     <div className="App">
       <Header activePage={activePage} setActivePage={setActivePage} />
+
       <main className="main-content">
         {renderPage()}
       </main>
