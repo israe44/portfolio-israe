@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Terminal.css";
 
 const Terminal = () => {
+
   const [history, setHistory] = useState([
-    "Welcome to Israe's terminal!",
+    "Feel free to checkout my terminal!",
     'Type "help" to see available commands.',
     ""
   ]);
@@ -98,8 +99,8 @@ const Terminal = () => {
       <div className={`terminal-window ${minimized ? "minimized" : ""}`}>
         <div className="terminal-header">
           <div className="terminal-buttons">
-            <span className="dot red" onClick={handleClose}></span>
-           
+            <span className="dot red" onClick={handleClose}></span>{" "}
+           Israe's Terminal 
           </div>
           <span className="terminal-title">💜</span>
         </div>
@@ -111,14 +112,14 @@ const Terminal = () => {
             ))}
 
             <div className="terminal-input-line">
-              <span>$ </span>
+             
               <input
                 className="terminal-input"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 autoFocus
-                placeholder="Type a command..."
+                placeholder=  "Type a command..."
               />
             </div>
           </div>

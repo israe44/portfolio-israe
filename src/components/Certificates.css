@@ -115,7 +115,7 @@
 }
 
 .download-btn:hover {
-  background: #d585f0;
+  background: var(--hover-color);
 }
 
 .certificate-content {

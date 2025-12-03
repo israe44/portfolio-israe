@@ -5,18 +5,29 @@
   height: 100vh;
   background: #1b0a2a;
   font-family: 'Courier New', monospace;
+  transition: background 400ms ease;
+}
+
+[data-theme="light"] .terminal-page {
+  background: #f5f5f5;
 }
 
 .terminal-window {
   width: 70%;       /* smaller width */
   height: 70%;      /* smaller height */
-  background: #2e1b47;
+  background: #51268a;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+}
+
+[data-theme="light"] .terminal-window {
+  background: linear-gradient(180deg, #ffffff, #f9f9f9);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #ddd;
 }
 
 .terminal-window.minimized {
@@ -37,25 +48,96 @@
 }
 
 .dot {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .dot:hover {
-  transform: scale(1.2);
+  transform: scale(1.14);
 }
 
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
+.red { background: linear-gradient(180deg, #ff7b6b, #ff4a3a); }
+.red::after {
+  content: '✕';
+  color: rgba(255,255,255,0.95);
+  font-size: 11px;
+  line-height: 1;
+  position: relative;
+  transform: translateY(0.5px);
+}
+.yellow { background: linear-gradient(180deg, #ffd86b, #ffbf2b); }
+.green { background: linear-gradient(180deg, #6be07a, #2fcc46); }
+
+.terminal-header {
+  background: linear-gradient(180deg, #3a2060, #34204f);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: background 400ms ease;
+}
+
+[data-theme="light"] .terminal-header {
+  background: linear-gradient(180deg, #f0f0f0, #e8e8e8);
+  border-bottom: 1px solid #ddd;
+}
+
+.terminal-window {
+  background: linear-gradient(180deg, #5a2f8a, #48215f);
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+/* scrollbar polish */
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.terminal-body::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.12);
+  border-radius: 8px;
+  transition: background 400ms ease;
+}
+
+[data-theme="light"] .terminal-body::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,#7e3af2,#c774e8);
+  border-radius: 8px;
+  transition: background 400ms ease;
+}
+
+[data-theme="light"] .terminal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #888888, #999999);
+}
+
+.terminal-input:focus {
+  box-shadow: 0 0 12px rgba(126,58,242,0.18);
+  transition: box-shadow 300ms ease;
+}
+
+[data-theme="light"] .terminal-input:focus {
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
 
 .terminal-title {
   font-size: 16px;
   color: #f0e6ff;
   font-weight: bold;
+  transition: color 400ms ease;
+}
+
+[data-theme="light"] .terminal-title {
+  color: #333333;
 }
 
 .terminal-body {
@@ -65,6 +147,12 @@
   height: 100%;
   overflow-y: auto;
   background: #2e1b47;
+  transition: color 400ms ease, background 400ms ease;
+}
+
+[data-theme="light"] .terminal-body {
+  background: #ffffff;
+  color: #222222;
 }
 
 .terminal-line {
@@ -83,10 +171,20 @@
   color: #f0e6ff;
   font-size: 18px;
   width: 90%;
+  transition: color 400ms ease;
+}
+
+[data-theme="light"] .terminal-input {
+  color: #222222;
 }
 
 .terminal-input::placeholder {
   color: #d0bfff;
+  transition: color 400ms ease;
+}
+
+[data-theme="light"] .terminal-input::placeholder {
+  color: #999999;
 }
 
 .terminal-version {
@@ -94,4 +192,43 @@
   font-size: 12px;
   color: #d0bfff;
   text-align: center;
+}
+
+/* ========== Subtle flower decorations (CSS only) ========== */
+/* Two very subtle flowers that float slowly; low opacity to avoid exaggeration */
+.terminal-window::before,
+.terminal-window::after {
+  content: '🌸';
+  position: absolute;
+  font-size: 92px;
+  opacity: 0.06;
+  pointer-events: none;
+  transform-origin: center;
+}
+
+.terminal-window::before {
+  top: 6%;
+  right: 6%;
+  transform: translateY(0) rotate(6deg);
+  animation: flowerFloatSmall 9s ease-in-out infinite;
+}
+
+.terminal-window::after {
+  bottom: 8%;
+  left: 6%;
+  font-size: 76px;
+  transform: translateY(0) rotate(-8deg);
+  animation: flowerFloatSmall 12s ease-in-out infinite;
+}
+
+@keyframes flowerFloatSmall {
+  0% { transform: translateY(0) scale(1) rotate(-5deg); }
+  50% { transform: translateY(-10px) scale(1.02) rotate(5deg); }
+  100% { transform: translateY(0) scale(1) rotate(-5deg); }
+}
+
+/* Make decorations even more subtle on small screens */
+@media (max-width: 768px) {
+  .terminal-window::before,
+  .terminal-window::after { display: none; }
 }

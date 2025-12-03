@@ -137,7 +137,7 @@
 }
 
 .project-actions .btn-primary:hover {
-  background: linear-gradient(135deg, var(--hover-color), #d585f0);
+  background: linear-gradient(135deg, var(--hover-color), var(--accent-color));
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(126, 58, 242, 0.4);
 }

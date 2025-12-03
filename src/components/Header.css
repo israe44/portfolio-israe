@@ -9,6 +9,13 @@
     z-index: 1000;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(126, 58, 242, 0.2);
+    transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease;
+  }
+
+  [data-theme="light"] .header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   }
   
   .header-container {
@@ -30,6 +37,121 @@
   
   .logo:hover {
     transform: scale(1.05);
+  }
+  
+  .bucket-logo {
+    width: 48px;
+    height: 48px;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 6px rgba(126, 58, 242, 0.3));
+  }
+
+  /* Main color shifting animation */
+  .bucket-logo {
+    animation: bucketMainColor 5s ease-in-out infinite;
+  }
+
+  @keyframes bucketMainColor {
+    0% { color: #7e3af2; }
+    25% { color: #c774e8; }
+    50% { color: #9d5ff6; }
+    75% { color: #b896d8; }
+    100% { color: #7e3af2; }
+  }
+
+  /* Handle animation */
+  .bucket-handle {
+    animation: bucketHandleGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes bucketHandleGlow {
+    0%, 100% { filter: drop-shadow(0 0 2px rgba(126, 58, 242, 0.4)); }
+    50% { filter: drop-shadow(0 0 6px rgba(199, 125, 232, 0.6)); }
+  }
+
+  /* Body pulsing effect */
+  .bucket-body {
+    animation: bucketBodyPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes bucketBodyPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+  }
+
+  /* Shine animation */
+  .bucket-shine {
+    animation: shineFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes shineFloat {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+  }
+
+  /* Liquid wave animation */
+  .bucket-liquid {
+    animation: liquidWave 2.5s ease-in-out infinite;
+  }
+
+  .wave-1 {
+    animation: wave1 2.5s ease-in-out infinite;
+  }
+
+  .wave-2 {
+    animation: wave2 2.5s ease-in-out infinite;
+  }
+
+  @keyframes liquidWave {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes wave1 {
+    0% { d: path('M 32 62 Q 50 64 68 62'); }
+    50% { d: path('M 32 62 Q 50 58 68 62'); }
+    100% { d: path('M 32 62 Q 50 64 68 62'); }
+  }
+
+  @keyframes wave2 {
+    0% { d: path('M 32 72 Q 50 74 68 72'); }
+    50% { d: path('M 32 72 Q 50 68 68 72'); }
+    100% { d: path('M 32 72 Q 50 74 68 72'); }
+  }
+
+  /* Accent dots twinkling */
+  .accent-dot-1, .accent-dot-2, .accent-dot-3 {
+    animation: dotTwinkle 2.5s ease-in-out infinite;
+  }
+
+  .accent-dot-2 {
+    animation-delay: 0.4s;
+  }
+
+  .accent-dot-3 {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes dotTwinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+
+  /* Enhanced hover effect */
+  .logo:hover .bucket-logo {
+    animation: bucketMainColorFast 1s ease-in-out infinite;
+    filter: drop-shadow(0 4px 16px rgba(126, 58, 242, 0.6));
+    transform: scale(1.1);
+  }
+
+  @keyframes bucketMainColorFast {
+    0% { color: #7e3af2; }
+    20% { color: #c774e8; }
+    40% { color: #9d5ff6; }
+    60% { color: #e0aaff; }
+    80% { color: #b896d8; }
+    100% { color: #7e3af2; }
   }
   
   .logo span {
@@ -73,11 +195,36 @@
     background: rgba(126, 58, 242, 0.1);
     transform: translateY(-2px);
   }
+
+  [data-theme="light"] .nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
   
   .nav-list li.active .nav-link {
     color: var(--secondary-color);
     background: rgba(126, 58, 242, 0.2);
     box-shadow: 0 4px 15px rgba(126, 58, 242, 0.3);
+    animation: activeNavPulse 0.4s ease-out;
+  }
+
+  [data-theme="light"] .nav-list li.active .nav-link {
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  @keyframes activeNavPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0px 20px rgba(126, 58, 242, 0.5);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 4px 25px rgba(126, 58, 242, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 15px rgba(126, 58, 242, 0.3);
+    }
   }
   
   .nav-list li.active .nav-link::after {

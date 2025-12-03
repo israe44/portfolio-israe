@@ -3,6 +3,23 @@ import { FaCode, FaLaptopCode, FaDatabase, FaServer, FaMobile, FaGithub, FaLinke
 import './About.css';
 
 const About = () => {
+  const N8NIcon = (props) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64 64"
+      width="1em"
+      height="1em"
+      aria-hidden="true"
+      focusable="false"
+      {...props}
+    >
+      <circle cx="32" cy="32" r="30" fill="#FF6A00" />
+      <g fill="#ffffff" fontFamily="Arial, Helvetica, sans-serif" fontWeight="700" fontSize="18" textAnchor="middle">
+        <text x="32" y="38">n8n</text>
+      </g>
+    </svg>
+  );
+
   const technologies = [
     { name: 'HTML', icon: FaCode, category: 'frontend', color: '#E34F26' },
     { name: 'CSS', icon: FaCode, category: 'frontend', color: '#1572B6' },
@@ -12,15 +29,16 @@ const About = () => {
     { name: 'PHP', icon: FaServer, category: 'backend', color: '#777BB4' },
     { name: 'Python', icon: FaServer, category: 'backend', color: '#3776AB' },
     { name: 'MySQL', icon: FaDatabase, category: 'database', color: '#4479A1' },
-    { name: 'UI/UX Design', icon: FaPalette, category: 'design', color: '#FF6B6B' }
+    { name: 'Figma', icon: FaPalette, category: 'design', color: '#FF6B6B' },
+    { name: 'n8n', icon: N8NIcon, category: 'automation', color: '#FF6A00' }
   ];
-
+  technologies.push({ name: 'Git', icon: FaGithub, category: 'version-control', color: '#F05032' });
   const socialLinks = [
     { name: 'GitHub', icon: FaGithub, url: 'https://github.com/israe44', color: '#333' },
     { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/israeyajib', color: '#0077B5' },
     { name: 'Fiverr', icon: FaStar, url: 'https://fiverr.com/sarou2y', color: '#1DBF73' }
   ];
-
+  technologies.push({ name: 'Docker', icon: FaServer, category: 'devops', color: '#2496ED' });
   return (
     <div className="about page">
       <div className="container">

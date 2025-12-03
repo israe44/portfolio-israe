@@ -145,7 +145,7 @@
   }
   
   .calc-btn.equals:hover {
-    background: #d585f0;
+    background: var(--hover-color);
   }
   
   /* Tic Tac Toe Game Styles */

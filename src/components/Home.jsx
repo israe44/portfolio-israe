@@ -3,7 +3,7 @@ import { FaCode, FaLaptopCode, FaGamepad, FaAward, FaFileAlt, FaProjectDiagram, 
 import './Home.css';
 import Terminal from './Terminal';
 
-const Home = () => {
+const Home = ({ scrollToSection }) => {
   const [showTerminal, setShowTerminal] = useState(false);
 
   const handleTerminalClick = () => {

@@ -6,7 +6,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Static Gym Website',
+      title: 'MYGYM Website',
       description: 'My first ever website.',
       icon: FaLaptopCode,
       image: `${process.env.PUBLIC_URL}/jim.png`,
@@ -36,7 +36,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Dynamic Website',
+      title: 'Interactive GYM Website',
       description: 'A dynamic website with interactive features and functionality.',
       icon: FaLaptopCode,
       image: `${process.env.PUBLIC_URL}/php.webp`,
@@ -50,7 +50,7 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'UI/UX Design Project',
+      title: 'Moroccan Online App UI/UX',
       description: 'Modern user interface and experience design prototypes created in Figma.',
       icon: FaFigma,
       image: `${process.env.PUBLIC_URL}/figma.png`, // You can add your Figma project image
