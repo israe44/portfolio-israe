@@ -14,9 +14,24 @@
   
   .games-sidebar {
     background: var(--card-bg);
-    border-radius: 10px;
     padding: 20px;
-    border: 1px solid rgba(126, 58, 242, 0.2);
+    border: 4px solid var(--pixel-border);
+    box-shadow: 
+      inset -3px -3px 0 var(--pixel-jungle-dark),
+      inset 3px 3px 0 var(--pixel-green-dark),
+      0 0 0 1px var(--pixel-border);
+    position: relative;
+  }
+
+  .games-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--pixel-green);
+    border-bottom: 2px solid var(--pixel-border);
   }
   
   .games-list {
@@ -31,23 +46,34 @@
     gap: 12px;
     padding: 15px 20px;
     background: transparent;
-    border: none;
-    color: var(--text-color);
-    border-radius: 8px;
+    border: 3px solid transparent;
+    color: var(--pixel-text);
     cursor: pointer;
-    transition: all 0.3s;
-    font-size: 16px;
+    transition: all 0.1s;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
   .game-tab:hover {
-    background: rgba(126, 58, 242, 0.1);
-    color: var(--secondary-color);
+    background: var(--pixel-jungle-dark);
+    color: var(--pixel-yellow);
+    border: 3px solid var(--pixel-green);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .game-tab.active {
-    background: rgba(126, 58, 242, 0.2);
-    color: var(--secondary-color);
+    background: var(--pixel-green);
+    color: var(--pixel-text-dark);
+    border: 3px solid var(--pixel-border);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-green-dark),
+      inset 2px 2px 0 var(--pixel-green-light),
+      0 0 0 1px var(--pixel-border);
   }
   
   .game-tab-icon {
@@ -56,9 +82,24 @@
   
   .game-display {
     background: var(--card-bg);
-    border-radius: 10px;
     padding: 30px;
-    border: 1px solid rgba(126, 58, 242, 0.2);
+    border: 4px solid var(--pixel-border);
+    box-shadow: 
+      inset -3px -3px 0 var(--pixel-jungle-dark),
+      inset 3px 3px 0 var(--pixel-green-dark),
+      0 0 0 1px var(--pixel-border);
+    position: relative;
+  }
+
+  .game-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--pixel-green);
+    border-bottom: 2px solid var(--pixel-border);
   }
   
   .game-header {
@@ -91,16 +132,19 @@
   }
   
   .calculator {
-    background: rgba(15, 7, 25, 0.8);
-    border-radius: 10px;
+    background: var(--pixel-jungle-mid);
+    border: 4px solid var(--pixel-border);
     padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      inset -3px -3px 0 var(--pixel-jungle-dark),
+      inset 3px 3px 0 var(--pixel-green-dark),
+      0 0 0 1px var(--pixel-border);
   }
   
   .calculator-display {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--pixel-jungle-dark);
     padding: 20px;
-    border-radius: 8px;
+    border: 3px solid var(--pixel-border);
     text-align: right;
     font-size: 24px;
     margin-bottom: 15px;
@@ -109,6 +153,10 @@
     align-items: center;
     justify-content: flex-end;
     font-family: 'Courier New', monospace;
+    color: var(--pixel-yellow);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .calculator-buttons {
@@ -119,33 +167,39 @@
   
   .calc-btn {
     padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(126, 58, 242, 0.2);
-    color: var(--text-color);
+    border: 3px solid var(--pixel-border);
+    background: var(--pixel-jungle-dark);
+    color: var(--pixel-text);
     font-size: 18px;
+    font-family: 'Courier New', monospace;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.1s;
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .calc-btn:hover {
-    background: rgba(126, 58, 242, 0.4);
+    background: var(--pixel-jungle-mid);
+    color: var(--pixel-yellow);
   }
   
   .calc-btn.operator {
-    background: var(--secondary-color);
+    background: var(--pixel-green);
+    color: var(--pixel-text-dark);
   }
   
   .calc-btn.operator:hover {
-    background: var(--hover-color);
+    background: var(--pixel-green-light);
   }
   
   .calc-btn.equals {
-    background: var(--accent-color);
+    background: var(--pixel-yellow);
+    color: var(--pixel-text-dark);
   }
   
   .calc-btn.equals:hover {
-    background: var(--hover-color);
+    background: var(--pixel-yellow-light);
   }
   
   /* Tic Tac Toe Game Styles */
@@ -157,22 +211,29 @@
     display: grid;
     grid-template-columns: repeat(3, 80px);
     grid-template-rows: repeat(3, 80px);
-    gap: 5px;
+    gap: 4px;
     margin-bottom: 20px;
+    border: 3px solid var(--pixel-border);
+    padding: 4px;
+    background: var(--pixel-jungle-dark);
   }
   
   .tile {
-    background: rgba(126, 58, 242, 0.2);
-    border: none;
-    border-radius: 8px;
+    background: var(--pixel-jungle-mid);
+    border: 3px solid var(--pixel-border);
     font-size: 24px;
-    color: var(--text-color);
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    color: var(--pixel-yellow);
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.1s;
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .tile:hover {
-    background: rgba(126, 58, 242, 0.4);
+    background: var(--pixel-green);
+    color: var(--pixel-text-dark);
   }
   
   .game-status {

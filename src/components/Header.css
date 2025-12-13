@@ -1,168 +1,18 @@
-/* src/components/Header.css */
+/* src/components/Header.css - Modern Pixel Art */
 .header {
-    background-color: rgba(15, 7, 25, 0.95);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(126, 58, 242, 0.2);
-    transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease;
-  }
-
-  [data-theme="light"] .header {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.1s;
+    padding: 20px 0;
   }
   
   .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 0;
-  }
-  
-  .logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  
-  .logo:hover {
-    transform: scale(1.05);
-  }
-  
-  .bucket-logo {
-    width: 48px;
-    height: 48px;
-    color: var(--secondary-color);
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 6px rgba(126, 58, 242, 0.3));
-  }
-
-  /* Main color shifting animation */
-  .bucket-logo {
-    animation: bucketMainColor 5s ease-in-out infinite;
-  }
-
-  @keyframes bucketMainColor {
-    0% { color: #7e3af2; }
-    25% { color: #c774e8; }
-    50% { color: #9d5ff6; }
-    75% { color: #b896d8; }
-    100% { color: #7e3af2; }
-  }
-
-  /* Handle animation */
-  .bucket-handle {
-    animation: bucketHandleGlow 3s ease-in-out infinite;
-  }
-
-  @keyframes bucketHandleGlow {
-    0%, 100% { filter: drop-shadow(0 0 2px rgba(126, 58, 242, 0.4)); }
-    50% { filter: drop-shadow(0 0 6px rgba(199, 125, 232, 0.6)); }
-  }
-
-  /* Body pulsing effect */
-  .bucket-body {
-    animation: bucketBodyPulse 4s ease-in-out infinite;
-  }
-
-  @keyframes bucketBodyPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.85; }
-  }
-
-  /* Shine animation */
-  .bucket-shine {
-    animation: shineFloat 3s ease-in-out infinite;
-  }
-
-  @keyframes shineFloat {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
-  }
-
-  /* Liquid wave animation */
-  .bucket-liquid {
-    animation: liquidWave 2.5s ease-in-out infinite;
-  }
-
-  .wave-1 {
-    animation: wave1 2.5s ease-in-out infinite;
-  }
-
-  .wave-2 {
-    animation: wave2 2.5s ease-in-out infinite;
-  }
-
-  @keyframes liquidWave {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
-  }
-
-  @keyframes wave1 {
-    0% { d: path('M 32 62 Q 50 64 68 62'); }
-    50% { d: path('M 32 62 Q 50 58 68 62'); }
-    100% { d: path('M 32 62 Q 50 64 68 62'); }
-  }
-
-  @keyframes wave2 {
-    0% { d: path('M 32 72 Q 50 74 68 72'); }
-    50% { d: path('M 32 72 Q 50 68 68 72'); }
-    100% { d: path('M 32 72 Q 50 74 68 72'); }
-  }
-
-  /* Accent dots twinkling */
-  .accent-dot-1, .accent-dot-2, .accent-dot-3 {
-    animation: dotTwinkle 2.5s ease-in-out infinite;
-  }
-
-  .accent-dot-2 {
-    animation-delay: 0.4s;
-  }
-
-  .accent-dot-3 {
-    animation-delay: 0.8s;
-  }
-
-  @keyframes dotTwinkle {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.9; }
-  }
-
-  /* Enhanced hover effect */
-  .logo:hover .bucket-logo {
-    animation: bucketMainColorFast 1s ease-in-out infinite;
-    filter: drop-shadow(0 4px 16px rgba(126, 58, 242, 0.6));
-    transform: scale(1.1);
-  }
-
-  @keyframes bucketMainColorFast {
-    0% { color: #7e3af2; }
-    20% { color: #c774e8; }
-    40% { color: #9d5ff6; }
-    60% { color: #e0aaff; }
-    80% { color: #b896d8; }
-    100% { color: #7e3af2; }
-  }
-  
-  .logo span {
-    color: var(--secondary-color);
-    margin-left: 2px;
-  }
-  
-  .logo-icon {
-    margin-right: 12px;
-    color: var(--secondary-color);
-    font-size: 24px;
   }
   
   .nav-list {
@@ -174,42 +24,45 @@
   }
   
   .nav-link {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 16px;
+    background: transparent;
+    border: 3px solid transparent;
+    color: var(--pixel-text);
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
     cursor: pointer;
-    padding: 12px 20px;
-    border-radius: 25px;
-    transition: all 0.3s;
+    padding: 10px 16px;
+    transition: all 0.1s;
     position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
   .nav-link:hover {
-    color: var(--secondary-color);
-    background: rgba(126, 58, 242, 0.1);
-    transform: translateY(-2px);
-  }
-
-  [data-theme="light"] .nav-link:hover {
-    background: rgba(0, 0, 0, 0.05);
+    color: var(--pixel-yellow);
+    background: var(--pixel-jungle-dark);
+    border: 3px solid var(--pixel-green);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
+    transform: translateY(-1px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .nav-list li.active .nav-link {
-    color: var(--secondary-color);
-    background: rgba(126, 58, 242, 0.2);
-    box-shadow: 0 4px 15px rgba(126, 58, 242, 0.3);
-    animation: activeNavPulse 0.4s ease-out;
-  }
-
-  [data-theme="light"] .nav-list li.active .nav-link {
-    background: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: var(--pixel-text-dark);
+    background: var(--pixel-green);
+    border: 3px solid var(--pixel-border);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-green-dark),
+      inset 2px 2px 0 var(--pixel-green-light),
+      0 0 0 1px var(--pixel-border);
+    transform: translateY(-1px);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   @keyframes activeNavPulse {
@@ -228,15 +81,7 @@
   }
   
   .nav-list li.active .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 2px;
-    background: var(--secondary-color);
-    border-radius: 1px;
+    display: none;
   }
   
   .nav-icon {
@@ -245,19 +90,26 @@
   
   .mobile-menu-toggle {
     display: none;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 24px;
+    background: var(--pixel-green);
+    border: 3px solid var(--pixel-border);
+    color: var(--pixel-text-dark);
+    font-size: 20px;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 5px;
-    transition: all 0.3s;
+    padding: 8px 12px;
+    transition: all 0.1s;
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-green-dark),
+      inset 2px 2px 0 var(--pixel-green-light);
+    font-family: 'Courier New', monospace;
+    position: absolute;
+    right: 20px;
   }
   
   .mobile-menu-toggle:hover {
-    background: rgba(126, 58, 242, 0.1);
-    color: var(--secondary-color);
+    background: var(--pixel-green-light);
+    box-shadow: 
+      inset -1px -1px 0 var(--pixel-green),
+      inset 1px 1px 0 var(--pixel-yellow);
   }
   
   /* Mobile Styles */
@@ -275,13 +127,11 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: var(--primary-color);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      background: transparent;
       transform: translateY(-10px);
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
-      border-top: 1px solid rgba(126, 58, 242, 0.2);
+      transition: all 0.1s;
     }
   
     .nav-open {
@@ -301,28 +151,14 @@
       width: 100%;
       text-align: left;
       padding: 15px 20px;
-      border-radius: 10px;
       justify-content: flex-start;
+      border: 3px solid transparent;
     }
   
     .nav-list li.active .nav-link::after {
-      left: 20px;
-      transform: none;
-      width: 3px;
-      height: 20px;
-      bottom: auto;
-      top: 50%;
-      transform: translateY(-50%);
+      display: none;
     }
   
-    .logo {
-      font-size: 24px;
-    }
-  
-    .logo-icon {
-      font-size: 20px;
-      margin-right: 8px;
-    }
   }
   
   @media (max-width: 480px) {
@@ -330,9 +166,6 @@
       padding: 10px 0;
     }
   
-    .logo {
-      font-size: 22px;
-    }
   
     .nav-link {
       padding: 12px 16px;
@@ -344,13 +177,3 @@
     }
   }
   
-  /* Animation for logo */
-  @keyframes logoPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-  }
-  
-  .logo:active {
-    animation: logoPulse 0.3s ease;
-  }

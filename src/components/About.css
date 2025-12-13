@@ -1,5 +1,5 @@
 .about.page {
-    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(15, 7, 25, 0.98) 100%);
+    background: var(--pixel-jungle-dark);
     min-height: 100vh;
   }
   
@@ -10,13 +10,18 @@
   }
   
   .page-title {
-    font-size: 2.8rem;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    font-size: 24px;
+    color: var(--pixel-yellow);
     margin-bottom: 15px;
     font-weight: 700;
+    text-shadow: 
+      3px 3px 0 var(--pixel-border),
+      -1px -1px 0 var(--pixel-border),
+      1px -1px 0 var(--pixel-border),
+      -1px 1px 0 var(--pixel-border);
+    text-transform: uppercase;
+    letter-spacing: 3px;
   }
   
   .title-decoration {
@@ -71,11 +76,12 @@
   .description-box {
     background: var(--card-bg);
     padding: 35px;
-    border-radius: 18px;
-    border: 1px solid rgba(126, 58, 242, 0.25);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    border: 4px solid var(--pixel-border);
+    box-shadow: 
+      inset -3px -3px 0 var(--pixel-jungle-dark),
+      inset 3px 3px 0 var(--pixel-green-dark),
+      0 0 0 1px var(--pixel-border);
+    transition: all 0.1s;
     position: relative;
     overflow: hidden;
     max-width: 900px;
@@ -88,14 +94,19 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    height: 4px;
+    background: var(--pixel-green);
+    border-bottom: 2px solid var(--pixel-border);
   }
   
   .description-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(126, 58, 242, 0.15);
-    border-color: rgba(126, 58, 242, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 
+      inset -3px -3px 0 var(--pixel-jungle-dark),
+      inset 3px 3px 0 var(--pixel-green),
+      0 0 0 1px var(--pixel-border),
+      0 8px 16px rgba(0, 0, 0, 0.4);
+    border-color: var(--pixel-green);
   }
   
   .description-box p {
@@ -116,19 +127,25 @@
   }
   
   .info-item {
-    color: var(--text-light);
+    color: var(--pixel-text);
     font-size: 0.95rem;
+    font-family: 'Courier New', monospace;
     padding: 18px;
-    background: rgba(126, 58, 242, 0.05);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(126, 58, 242, 0.1);
+    background: var(--pixel-jungle-dark);
+    border: 3px solid var(--pixel-border);
+    transition: all 0.1s;
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .info-item:hover {
-    background: rgba(126, 58, 242, 0.08);
-    transform: translateY(-2px);
-    border-color: rgba(126, 58, 242, 0.2);
+    background: var(--pixel-jungle-mid);
+    transform: translateY(-1px);
+    border-color: var(--pixel-green);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green);
   }
   
   .info-item strong {
@@ -151,14 +168,17 @@
     justify-content: center;
     width: 38px;
     height: 38px;
-    background: var(--social-color);
-    color: white;
-    border-radius: 10px;
+    background: var(--pixel-green);
+    color: var(--pixel-text-dark);
+    border: 3px solid var(--pixel-border);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.1s;
     font-size: 16px;
     position: relative;
     overflow: hidden;
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-green-dark),
+      inset 2px 2px 0 var(--pixel-green-light);
   }
   
   .social-link::before {
@@ -177,8 +197,11 @@
   }
   
   .social-link:hover {
-    transform: translateY(-2px) scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    background: var(--pixel-green-light);
+    box-shadow: 
+      inset -1px -1px 0 var(--pixel-green),
+      inset 1px 1px 0 var(--pixel-yellow);
   }
   
   .tech-stack-section {
@@ -217,13 +240,14 @@
   .tech-card {
     background: var(--card-bg);
     padding: 25px 15px;
-    border-radius: 14px;
     text-align: center;
-    border: 1px solid rgba(126, 58, 242, 0.15);
-    transition: all 0.3s ease;
+    border: 3px solid var(--pixel-border);
+    transition: all 0.1s;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green-dark);
   }
   
   .tech-card::before {
@@ -233,19 +257,22 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--tech-color);
-    transition: height 0.3s ease;
+    background: var(--pixel-green);
+    border-bottom: 2px solid var(--pixel-border);
   }
   
   .tech-card:hover::before {
-    height: 100%;
-    opacity: 0.08;
+    height: 4px;
+    background: var(--pixel-yellow);
   }
   
   .tech-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--tech-color);
-    box-shadow: 0 12px 25px rgba(126, 58, 242, 0.15);
+    transform: translateY(-2px);
+    border-color: var(--pixel-green);
+    box-shadow: 
+      inset -2px -2px 0 var(--pixel-jungle-dark),
+      inset 2px 2px 0 var(--pixel-green),
+      0 0 0 1px var(--pixel-border);
   }
   
   .tech-icon {

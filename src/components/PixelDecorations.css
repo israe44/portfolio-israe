@@ -1,0 +1,155 @@
+/* Pixel Art Decorative Elements - Non-intrusive Background Decorations */
+
+.pixel-decoration {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.pixel-svg {
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.2));
+}
+
+/* Snake - Top Left */
+.pixel-snake {
+  top: 10%;
+  left: 2%;
+  animation: floatSnake 8s ease-in-out infinite;
+}
+
+@keyframes floatSnake {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Flower - Top Right */
+.pixel-flower {
+  top: 8%;
+  right: 3%;
+  animation: floatFlower 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes floatFlower {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+}
+
+/* Leaf - Bottom Left */
+.pixel-leaf {
+  bottom: 15%;
+  left: 4%;
+  animation: floatLeaf 7s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes floatLeaf {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+/* Vine - Left Side */
+.pixel-vine {
+  top: 30%;
+  left: 1%;
+  animation: floatVine 9s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatVine {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Bird - Top Center */
+.pixel-bird {
+  top: 12%;
+  right: 10%;
+  animation: floatBird 5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+@keyframes floatBird {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-8px) translateX(5px); }
+  50% { transform: translateY(-5px) translateX(10px); }
+  75% { transform: translateY(-8px) translateX(5px); }
+}
+
+/* Butterfly - Right Side */
+.pixel-butterfly {
+  top: 25%;
+  right: 2%;
+  animation: floatButterfly 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes floatButterfly {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* Hover effect - slightly more visible on section hover */
+.page-section:hover ~ .pixel-decoration,
+.page-section:hover .pixel-decoration {
+  opacity: 0.25;
+}
+
+/* Responsive - Hide on small screens */
+@media (max-width: 768px) {
+  .pixel-decoration {
+    opacity: 0.08;
+    transform: scale(0.8);
+  }
+  
+  .pixel-vine {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-decoration {
+    display: none;
+  }
+}
+
+/* Additional decorative elements for sections */
+.page-section::before,
+.page-section::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+/* Corner decorations */
+.page-section:nth-child(odd)::before {
+  top: 20px;
+  left: 20px;
+  width: 16px;
+  height: 16px;
+  background: var(--pixel-green);
+  border: 2px solid var(--pixel-border);
+  box-shadow: 
+    inset -1px -1px 0 var(--pixel-green-dark),
+    inset 1px 1px 0 var(--pixel-green-light);
+}
+
+.page-section:nth-child(even)::after {
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  background: var(--pixel-yellow);
+  border: 2px solid var(--pixel-border);
+  box-shadow: 
+    inset -1px -1px 0 var(--pixel-yellow-dark),
+    inset 1px 1px 0 var(--pixel-yellow-light);
+}
+

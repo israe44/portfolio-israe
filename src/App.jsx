@@ -10,6 +10,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Games from './components/Games';
 import Certificates from './components/Certificates';
+import PixelDecorations from './components/PixelDecorations';
 
 function App() {
   const [activePage, setActivePage] = useState('home');
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <PixelDecorations />
       <Header activePage={activePage} setActivePage={scrollToSection} toggleTheme={toggleTheme} isDark={isDark} />
 
       <main className="main-content">

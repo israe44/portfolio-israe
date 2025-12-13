@@ -61,7 +61,7 @@ const About = () => {
                     "I'm a full-stack developer who just loves the process of building things from the ground up. There's a special kind of magic in crafting a sleek user interface and then diving deep to make the engine behind it hum. For me, it's that perfect blend of creative design and logical problem-solving that makes coding so incredibly rewarding."
                   </p>
                   <p>
-                    "Outside of coding, I enjoy UI/UX design as a creative hobby—crafting interfaces and experimenting with user flows."
+                    Outside of coding, I enjoy UI/UX design as a creative hobby, crafting interfaces and experimenting with user flows.
                   </p>
                   <div className="personal-info">
                     <div className="info-item">

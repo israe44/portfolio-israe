@@ -1,6 +1,6 @@
 /* Home Page Styles */
 
-/* Hero Section */
+/* Hero Section - Game Title Screen */
 .hero {
   display: flex;
   grid-template-columns: 1fr 1fr;
@@ -11,6 +11,7 @@
   padding: 40px 0;
   position: relative;
   overflow: hidden;
+  min-height: 70vh;
 }
 
 .hero-content {
@@ -69,39 +70,64 @@
 
 .profile-card {
   background: var(--card-bg);
-  border-radius: 20px;
   padding: 40px;
   text-align: center;
-  border: 1px solid rgba(126, 58, 242, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
+  border: 4px solid var(--pixel-border);
+  box-shadow: 
+    inset -3px -3px 0 var(--pixel-jungle-dark),
+    inset 3px 3px 0 var(--pixel-green-dark),
+    0 0 0 1px var(--pixel-border),
+    0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.1s;
   position: relative;
   z-index: 2;
 }
 
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pixel-green);
+  border-bottom: 2px solid var(--pixel-border);
+}
+
 .profile-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset -3px -3px 0 var(--pixel-jungle-dark),
+    inset 3px 3px 0 var(--pixel-green),
+    0 0 0 1px var(--pixel-border),
+    0 12px 24px rgba(0, 0, 0, 0.5);
+  border-color: var(--pixel-green);
 }
 
 .profile-avatar {
   width: 120px;
   height: 120px;
-  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-  border-radius: 50%;
+  background: var(--pixel-green);
+  border: 4px solid var(--pixel-border);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 
+    inset -2px -2px 0 var(--pixel-green-dark),
+    inset 2px 2px 0 var(--pixel-green-light),
+    0 0 0 1px var(--pixel-border);
+  image-rendering: pixelated;
 }
 
 .profile-avatar::before {
   content: '';
   position: absolute;
-  inset: -4px;
-  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-  border-radius: 50%;
+  inset: -6px;
+  background: var(--pixel-yellow);
+  border: 2px solid var(--pixel-border);
   z-index: -1;
   opacity: 0.3;
 }
@@ -753,17 +779,22 @@
 }
 
 .name-gradient {
-  font-size: 3.5rem;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
-  line-height: 1.1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  line-height: 1.3;
+  color: var(--pixel-yellow);
+  text-shadow: 
+    4px 4px 0 var(--pixel-border),
+    -1px -1px 0 var(--pixel-border),
+    1px -1px 0 var(--pixel-border),
+    -1px 1px 0 var(--pixel-border);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .name-first {
@@ -792,11 +823,14 @@
 }
 
 .title-main {
-  font-size: 1.8rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #f0e8e8;
+  color: var(--pixel-green-light);
   margin-bottom: 0.5rem;
   animation: fadeInUp 0.8s ease-out 0.4s both;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .title-sub {
@@ -896,25 +930,29 @@
   animation: fadeInUp 0.8s ease-out 1.2s both;
 }
 
-/* Terminal Button (Home) */
+/* Terminal Button (Home) - Retro Game Style */
 .btn.btn-terminal {
-  background: linear-gradient(90deg, #7e3af2 0%, #c774e8 100%);
-  color: #fff;
+  background: var(--pixel-green);
+  color: var(--pixel-text-dark);
   padding: 12px 26px;
-  border-radius: 999px;
-  border: none;
+  border: 3px solid var(--pixel-border);
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-weight: 700;
-  font-size: 15px;
-  box-shadow: 0 10px 30px rgba(126,58,242,0.16);
-  transition: transform 180ms cubic-bezier(.2,.8,.2,1), box-shadow 180ms ease, opacity 180ms ease;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 
+    inset -3px -3px 0 var(--pixel-green-dark),
+    inset 3px 3px 0 var(--pixel-green-light),
+    0 0 0 1px var(--pixel-border);
+  transition: all 0.1s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
   outline: none;
-  animation: terminalBtnPop 560ms cubic-bezier(.2,.8,.2,1) both;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .btn.btn-terminal .btn-icon {
@@ -943,12 +981,20 @@
 }
 
 .btn.btn-terminal:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(126,58,242,0.22);
+  transform: translateY(-2px);
+  background: var(--pixel-green-light);
+  box-shadow: 
+    inset -2px -2px 0 var(--pixel-green),
+    inset 2px 2px 0 var(--pixel-yellow),
+    0 0 0 1px var(--pixel-border);
 }
 
 .btn.btn-terminal:active {
-  transform: translateY(-1px) scale(0.995);
+  transform: translateY(0);
+  box-shadow: 
+    inset 3px 3px 0 var(--pixel-green-dark),
+    inset -3px -3px 0 var(--pixel-green-light),
+    0 0 0 1px var(--pixel-border);
 }
 
 .btn.btn-terminal:focus {

@@ -1,69 +1,106 @@
+/* Import pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Modern pixel-art color palette */
+  --pixel-dark: #1a1a1a;
+  --pixel-darker: #0d0d0d;
+  --pixel-green: #5cb85c;
+  --pixel-green-light: #7ed37e;
+  --pixel-green-dark: #3a7a3a;
+  --pixel-yellow: #f4d03f;
+  --pixel-yellow-light: #f7dc6f;
+  --pixel-yellow-dark: #c9a82f;
+  --pixel-brown: #8b6914;
+  --pixel-brown-light: #a0822d;
+  --pixel-jungle-dark: #0d1f0d;
+  --pixel-jungle-mid: #1a3a1a;
+  --pixel-jungle-light: #2d5a2d;
+  --pixel-text: #f0f0f0;
+  --pixel-text-dark: #1a1a1a;
+  --pixel-border: #1a1a1a;
+  --pixel-border-light: #2d2d2d;
+  
+  font-family: 'Courier New', monospace;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: var(--pixel-text);
+  background-color: var(--pixel-jungle-dark);
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--pixel-green-light);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--pixel-yellow);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--pixel-jungle-dark);
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26, 74, 26, 0.1) 2px, rgba(26, 74, 26, 0.1) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(26, 74, 26, 0.1) 2px, rgba(26, 74, 26, 0.1) 4px);
+  background-size: 20px 20px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+p, span, div, li, a {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border: 3px solid var(--pixel-border);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-family: 'Courier New', monospace;
+  background-color: var(--pixel-green);
+  color: var(--pixel-text-dark);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.1s;
+  box-shadow: 
+    inset -2px -2px 0 var(--pixel-green-dark),
+    inset 2px 2px 0 var(--pixel-green-light),
+    0 0 0 1px var(--pixel-border);
+  text-transform: uppercase;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  background-color: var(--pixel-green-light);
+  box-shadow: 
+    inset -1px -1px 0 var(--pixel-green),
+    inset 1px 1px 0 var(--pixel-yellow),
+    0 0 0 1px var(--pixel-border);
+}
+
+button:active {
+  box-shadow: 
+    inset 2px 2px 0 var(--pixel-green-dark),
+    inset -2px -2px 0 var(--pixel-green-light),
+    0 0 0 1px var(--pixel-border);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid var(--pixel-yellow);
+  outline-offset: 2px;
 }

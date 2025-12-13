@@ -3,31 +3,41 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #1b0a2a;
+  background: var(--pixel-jungle-dark);
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(45, 106, 45, 0.15) 4px, rgba(45, 106, 45, 0.15) 8px),
+    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(45, 106, 45, 0.15) 4px, rgba(45, 106, 45, 0.15) 8px);
+  background-size: 32px 32px;
   font-family: 'Courier New', monospace;
-  transition: background 400ms ease;
-}
-
-[data-theme="light"] .terminal-page {
-  background: #f5f5f5;
 }
 
 .terminal-window {
-  width: 70%;       /* smaller width */
-  height: 70%;      /* smaller height */
-  background: #51268a;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 70%;
+  height: 70%;
+  background: var(--pixel-jungle-mid);
+  border: 4px solid var(--pixel-border);
+  box-shadow: 
+    inset -3px -3px 0 var(--pixel-jungle-dark),
+    inset 3px 3px 0 var(--pixel-green-dark),
+    0 0 0 1px var(--pixel-border),
+    0 8px 16px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s ease;
+  transition: all 0.1s;
+  position: relative;
 }
 
-[data-theme="light"] .terminal-window {
-  background: linear-gradient(180deg, #ffffff, #f9f9f9);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  border: 1px solid #ddd;
+.terminal-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pixel-green);
+  border-bottom: 2px solid var(--pixel-border);
+  z-index: 1;
 }
 
 .terminal-window.minimized {
@@ -35,11 +45,14 @@
 }
 
 .terminal-header {
-  background: #3a2060;
-  padding: 10px;
+  background: var(--pixel-jungle-dark);
+  padding: 12px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 3px solid var(--pixel-border);
+  position: relative;
+  z-index: 2;
 }
 
 .terminal-buttons {
@@ -50,30 +63,48 @@
 .dot {
   width: 18px;
   height: 18px;
-  border-radius: 50%;
+  border: 2px solid var(--pixel-border);
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: all 0.1s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 
+    inset -2px -2px 0 rgba(0, 0, 0, 0.3),
+    inset 2px 2px 0 rgba(255, 255, 255, 0.2);
 }
 
 .dot:hover {
-  transform: scale(1.14);
+  transform: scale(1.1);
 }
 
-.red { background: linear-gradient(180deg, #ff7b6b, #ff4a3a); }
+.red { 
+  background: #ff4a3a;
+  box-shadow: 
+    inset -2px -2px 0 #cc0000,
+    inset 2px 2px 0 #ff6b6b;
+}
 .red::after {
   content: '✕';
-  color: rgba(255,255,255,0.95);
+  color: var(--pixel-text-dark);
   font-size: 11px;
   line-height: 1;
   position: relative;
-  transform: translateY(0.5px);
+  font-weight: bold;
 }
-.yellow { background: linear-gradient(180deg, #ffd86b, #ffbf2b); }
-.green { background: linear-gradient(180deg, #6be07a, #2fcc46); }
+.yellow { 
+  background: var(--pixel-yellow);
+  box-shadow: 
+    inset -2px -2px 0 var(--pixel-yellow-dark),
+    inset 2px 2px 0 var(--pixel-yellow-light);
+}
+.green { 
+  background: var(--pixel-green);
+  box-shadow: 
+    inset -2px -2px 0 var(--pixel-green-dark),
+    inset 2px 2px 0 var(--pixel-green-light);
+}
 
 .terminal-header {
   background: linear-gradient(180deg, #3a2060, #34204f);
@@ -98,61 +129,44 @@
 
 /* scrollbar polish */
 .terminal-body::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 .terminal-body::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.12);
-  border-radius: 8px;
-  transition: background 400ms ease;
-}
-
-[data-theme="light"] .terminal-body::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.05);
+  background: var(--pixel-jungle-dark);
+  border: 2px solid var(--pixel-border);
 }
 
 .terminal-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg,#7e3af2,#c774e8);
-  border-radius: 8px;
-  transition: background 400ms ease;
-}
-
-[data-theme="light"] .terminal-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #888888, #999999);
+  background: var(--pixel-green);
+  border: 2px solid var(--pixel-border);
+  box-shadow: inset -1px -1px 0 var(--pixel-green-dark);
 }
 
 .terminal-input:focus {
-  box-shadow: 0 0 12px rgba(126,58,242,0.18);
-  transition: box-shadow 300ms ease;
-}
-
-[data-theme="light"] .terminal-input:focus {
-  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  outline: 3px solid var(--pixel-yellow);
+  outline-offset: 2px;
 }
 
 .terminal-title {
-  font-size: 16px;
-  color: #f0e6ff;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--pixel-yellow);
   font-weight: bold;
-  transition: color 400ms ease;
-}
-
-[data-theme="light"] .terminal-title {
-  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 
+    1px 1px 0 var(--pixel-border),
+    -1px -1px 0 var(--pixel-border);
 }
 
 .terminal-body {
   padding: 20px;
-  color: #f0e6ff;
-  font-size: 18px;
+  color: var(--pixel-green-light);
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
   height: 100%;
   overflow-y: auto;
-  background: #2e1b47;
-  transition: color 400ms ease, background 400ms ease;
-}
-
-[data-theme="light"] .terminal-body {
-  background: #ffffff;
-  color: #222222;
+  background: var(--pixel-jungle-dark);
 }
 
 .terminal-line {
@@ -168,67 +182,25 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #f0e6ff;
-  font-size: 18px;
+  color: var(--pixel-yellow);
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
   width: 90%;
-  transition: color 400ms ease;
-}
-
-[data-theme="light"] .terminal-input {
-  color: #222222;
 }
 
 .terminal-input::placeholder {
-  color: #d0bfff;
-  transition: color 400ms ease;
-}
-
-[data-theme="light"] .terminal-input::placeholder {
-  color: #999999;
+  color: var(--pixel-green);
+  opacity: 0.6;
 }
 
 .terminal-version {
   margin-top: 10px;
-  font-size: 12px;
-  color: #d0bfff;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  color: var(--pixel-green);
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* ========== Subtle flower decorations (CSS only) ========== */
-/* Two very subtle flowers that float slowly; low opacity to avoid exaggeration */
-.terminal-window::before,
-.terminal-window::after {
-  content: '🌸';
-  position: absolute;
-  font-size: 92px;
-  opacity: 0.06;
-  pointer-events: none;
-  transform-origin: center;
-}
-
-.terminal-window::before {
-  top: 6%;
-  right: 6%;
-  transform: translateY(0) rotate(6deg);
-  animation: flowerFloatSmall 9s ease-in-out infinite;
-}
-
-.terminal-window::after {
-  bottom: 8%;
-  left: 6%;
-  font-size: 76px;
-  transform: translateY(0) rotate(-8deg);
-  animation: flowerFloatSmall 12s ease-in-out infinite;
-}
-
-@keyframes flowerFloatSmall {
-  0% { transform: translateY(0) scale(1) rotate(-5deg); }
-  50% { transform: translateY(-10px) scale(1.02) rotate(5deg); }
-  100% { transform: translateY(0) scale(1) rotate(-5deg); }
-}
-
-/* Make decorations even more subtle on small screens */
-@media (max-width: 768px) {
-  .terminal-window::before,
-  .terminal-window::after { display: none; }
-}
+/* Remove flower decorations for pixel-art theme */
