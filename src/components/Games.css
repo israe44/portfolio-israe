@@ -1,3 +1,8 @@
+.games.page {
+  background: var(--pixel-jungle-dark);
+  min-height: 100vh;
+}
+
 .page-subtitle {
     text-align: center;
     color: var(--text-light);
@@ -308,7 +313,7 @@
   
   .quiz-option {
     padding: 15px 20px;
-    background: rgba(126, 58, 242, 0.2);
+    background: rgba(167, 139, 250, 0.25);
     border: none;
     border-radius: 8px;
     color: var(--text-color);
@@ -319,7 +324,7 @@
   }
   
   .quiz-option:hover {
-    background: rgba(126, 58, 242, 0.4);
+    background: rgba(167, 139, 250, 0.4);
   }
   
   .quiz-option.correct {
@@ -708,7 +713,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background: rgba(126, 58, 242, 0.1);
+    background: rgba(167, 139, 250, 0.15);
     border-radius: 8px;
   }
   

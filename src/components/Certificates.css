@@ -1,5 +1,10 @@
 /* Certificates Page Styles */
 
+.certificates.page {
+  background: var(--pixel-jungle-dark);
+  min-height: 100vh;
+}
+
 .page-subtitle {
   text-align: center;
   color: var(--text-light);
@@ -207,7 +212,7 @@
 }
 
 .certificate-id {
-  background: rgba(126, 58, 242, 0.1);
+  background: rgba(167, 139, 250, 0.15);
   padding: 10px 15px;
   border-radius: 6px;
   margin-bottom: 15px;
@@ -259,7 +264,7 @@
   background: var(--card-bg);
   border-radius: 10px;
   padding: 40px;
-  border: 1px solid rgba(126, 58, 242, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
   text-align: center;
 }
 
@@ -282,7 +287,7 @@
   gap: 15px;
   text-align: left;
   padding: 20px;
-  background: rgba(126, 58, 242, 0.1);
+  background: rgba(167, 139, 250, 0.15);
   border-radius: 8px;
 }
 
@@ -307,6 +312,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 968px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+}
+
 @media (max-width: 768px) {
   .certificates-stats {
     flex-direction: column;
@@ -316,6 +328,8 @@
 
   .certificate-stat {
     padding: 15px 20px;
+    width: 100%;
+    max-width: 300px;
   }
 
   .certificates-grid {
@@ -351,11 +365,15 @@
   .add-certificate-section {
     padding: 25px;
   }
+  
+  .certificate-image {
+    height: 180px;
+  }
 }
 
 @media (max-width: 480px) {
   .certificate-content {
-    padding: 20px;
+    padding: 18px;
   }
 
   .certificate-actions {
@@ -365,5 +383,41 @@
   .overlay-btn {
     padding: 8px 12px;
     font-size: 14px;
+  }
+  
+  .certificate-title {
+    font-size: 18px;
+  }
+  
+  .certificate-image {
+    height: 150px;
+  }
+  
+  .certificate-stat {
+    padding: 12px 18px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stat-icon {
+    font-size: 20px;
+  }
+  
+  .stat-number {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .certificate-content {
+    padding: 15px;
+  }
+  
+  .certificate-title {
+    font-size: 16px;
+  }
+  
+  .certificate-description {
+    font-size: 13px;
   }
 }

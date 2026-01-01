@@ -2,20 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
-  /* Modern pixel-art color palette */
+  /* Modern pixel-art color palette - Light Unique Purple Theme */
   --pixel-dark: #1a1a1a;
   --pixel-darker: #0d0d0d;
-  --pixel-green: #5cb85c;
-  --pixel-green-light: #7ed37e;
-  --pixel-green-dark: #3a7a3a;
+  --pixel-green: #a78bfa;
+  --pixel-green-light: #c4b5fd;
+  --pixel-green-dark: #8b5cf6;
   --pixel-yellow: #f4d03f;
   --pixel-yellow-light: #f7dc6f;
   --pixel-yellow-dark: #c9a82f;
   --pixel-brown: #8b6914;
   --pixel-brown-light: #a0822d;
-  --pixel-jungle-dark: #0d1f0d;
-  --pixel-jungle-mid: #1a3a1a;
-  --pixel-jungle-light: #2d5a2d;
+  --pixel-jungle-dark: #2d1b3d;
+  --pixel-jungle-mid: #3d2a5a;
+  --pixel-jungle-light: #4d3a7a;
   --pixel-text: #f0f0f0;
   --pixel-text-dark: #1a1a1a;
   --pixel-border: #1a1a1a;
@@ -50,8 +50,8 @@ body {
   min-height: 100vh;
   background: var(--pixel-jungle-dark);
   background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26, 74, 26, 0.1) 2px, rgba(26, 74, 26, 0.1) 4px),
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(26, 74, 26, 0.1) 2px, rgba(26, 74, 26, 0.1) 4px);
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(167, 139, 250, 0.12) 2px, rgba(167, 139, 250, 0.12) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(167, 139, 250, 0.12) 2px, rgba(167, 139, 250, 0.12) 4px);
   background-size: 20px 20px;
 }
 
@@ -74,7 +74,7 @@ button {
   font-weight: 500;
   font-family: 'Courier New', monospace;
   background-color: var(--pixel-green);
-  color: var(--pixel-text-dark);
+  color: var(--pixel-text);
   cursor: pointer;
   transition: all 0.1s;
   box-shadow: 

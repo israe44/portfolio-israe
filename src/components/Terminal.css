@@ -4,10 +4,7 @@
   align-items: center;
   height: 100vh;
   background: var(--pixel-jungle-dark);
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(45, 106, 45, 0.15) 4px, rgba(45, 106, 45, 0.15) 8px),
-    repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(45, 106, 45, 0.15) 4px, rgba(45, 106, 45, 0.15) 8px);
-  background-size: 32px 32px;
+  min-height: 100vh;
   font-family: 'Courier New', monospace;
 }
 
@@ -203,4 +200,104 @@
   letter-spacing: 1px;
 }
 
-/* Remove flower decorations for pixel-art theme */
+/* Responsive Design */
+@media (max-width: 968px) {
+  .terminal-window {
+    width: 90%;
+    height: 80%;
+  }
+  
+  .terminal-body {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .terminal-title {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .terminal-window {
+    width: 95%;
+    height: 85%;
+  }
+  
+  .terminal-header {
+    padding: 10px 12px;
+  }
+  
+  .terminal-body {
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .terminal-input {
+    font-size: 14px;
+  }
+  
+  .terminal-title {
+    font-size: 10px;
+  }
+  
+  .dot {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-page {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .terminal-window {
+    width: 100%;
+    height: calc(100vh - 40px);
+    max-height: 600px;
+  }
+  
+  .terminal-header {
+    padding: 8px 10px;
+  }
+  
+  .terminal-body {
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .terminal-input {
+    font-size: 13px;
+    width: 85%;
+  }
+  
+  .terminal-title {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+  
+  .dot {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .terminal-line {
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .terminal-body {
+    font-size: 11px;
+  }
+  
+  .terminal-input {
+    font-size: 12px;
+  }
+  
+  .terminal-title {
+    font-size: 8px;
+  }
+}
