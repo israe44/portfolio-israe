@@ -19,7 +19,15 @@ const Home = ({ scrollToSection }) => {
       <div className="container">
 
         {/* Hero Section */}
-        <section className="hero">
+        <section
+          className="hero"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/background.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <div className="hero-image">
 
             <div className="centered-profile-card">

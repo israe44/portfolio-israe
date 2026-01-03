@@ -1,6 +1,6 @@
 # Israe Yajib — ✨ Cute Portfolio ✨
 
-A tiny, playful portfolio built with love, pixels, and a sprinkle of ✨ magic ✨.
+A tiny, playful portfolio built with love, and a sprinkle of ✨ magic ✨.
 
 [Open the portfolio 🌐](https://israe.fun)
 
@@ -57,10 +57,6 @@ npm run build
 - LinkedIn: https://linkedin.com/in/israeyajib
 - Fiverr: https://fiverr.com/sarou2y
 
-## License
 
-MIT — feel free to look, learn, and remix ✨
 
----
-
-Made with ❤️ and pixel dust 🕹️
+Made with ❤️ .
