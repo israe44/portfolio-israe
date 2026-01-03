@@ -1,16 +1,66 @@
-# React + Vite
+# Israe Yajib — ✨ Cute Portfolio ✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A tiny, playful portfolio built with love, pixels, and a sprinkle of ✨ magic ✨.
 
-Currently, two official plugins are available:
+[Open the portfolio 🌐](https://israe.fun)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## What's inside (quick)
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🖥️ Interactive Terminal — type fun commands and explore
+- 🧩 Projects — small apps, websites, and experiments
+- 🎓 Certificates — proof of learning and growth
+- 🎮 Games — little JS games for breaks
+- 🌙 Theme toggle — light/dark with smooth vibes
 
-## Expanding the ESLint configuration
+## Techy bits
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React • JavaScript • HTML • CSS
+- Python • PHP • MySQL (for experiments)
+- Figma • n8n • Docker
+
+## Project layout
+
+```
+src/
+├── components/        # Home, About, Projects, Terminal, etc.
+├── hooks/             # useTheme, useScrollAnimation
+└── assets/            # images & pixel decorations
+```
+
+## Run locally
+
+1. Clone:
+
+```bash
+git clone https://github.com/israe44/MY-PORTFOLIO.git
+cd MY-PORTFOLIO
+```
+
+2. Install & run:
+
+```bash
+npm install
+npm start
+```
+
+3. Build:
+
+```bash
+npm run build
+```
+
+## Links & contact
+
+- GitHub: https://github.com/israe44
+- LinkedIn: https://linkedin.com/in/israeyajib
+- Fiverr: https://fiverr.com/sarou2y
+
+## License
+
+MIT — feel free to look, learn, and remix ✨
+
+---
+
+Made with ❤️ and pixel dust 🕹️
