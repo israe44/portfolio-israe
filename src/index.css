@@ -46,8 +46,9 @@ a:hover {
 
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
   background: var(--pixel-jungle-dark);
   background-image: 
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(167, 139, 250, 0.12) 2px, rgba(167, 139, 250, 0.12) 4px),

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLaptopCode, FaDownload, FaGithub, FaFigma } from 'react-icons/fa';
+import { FaLaptopCode, FaDownload, FaGithub, FaFigma, FaPython } from 'react-icons/fa';
 import './Projects.css';
 
 const Projects = () => {
@@ -61,6 +61,34 @@ const Projects = () => {
       buttons: [
         { text: 'View Figma Project', icon: FaFigma, action: 'demo' }
       ]
+    },
+    {
+  id: 5,
+title: 'GIF Python',
+description: 'Python project for creating and manipulating GIF animations.',
+icon: FaPython,
+image: `${process.env.PUBLIC_URL}/gif.png`,
+status: 'completed',
+tags: ['Python', 'GIF', 'Animation', 'Image Processing'],
+
+github: 'https://github.com/israe44/Random-GIF-made-with-Python.git', // ✅ Correct
+buttons: [
+  { text: 'View Code', icon: FaGithub, action: 'github' }
+]
+      
+    },
+    {
+      id: 6,
+      title: '',
+      description: '',
+      icon: FaGithub,
+      image: '',
+      status: 'completed',
+      tags: [],
+      github: 'https://github.com/israe44',
+      demo: 'https://github.com/israe44',
+      clickable: true,
+      minimal: true // Flag for minimal display
     }
   ];
 
@@ -99,53 +127,73 @@ const Projects = () => {
 
         <div className="projects-grid">
           {projects.map(project => (
-            <div key={project.id} className="project-card card">
-          
-              <div className="project-header">
-                <div className="project-icon">
-                  <project.icon />
+            <div 
+              key={project.id} 
+              className={`project-card card ${project.clickable ? 'clickable-card' : ''} ${project.minimal ? 'minimal-card' : ''}`}
+              onClick={project.clickable ? () => handleButtonClick('github', project.github) : undefined}
+              style={project.clickable ? { cursor: 'pointer' } : undefined}
+            >
+              {project.minimal ? (
+                <div className="minimal-content">
+                  <div className="github-icon-large">
+                    <FaGithub />
+                  </div>
+                  <div className="see-more-text">→ see more</div>
                 </div>
-                <div 
-                  className="project-status" 
-                  style={{ backgroundColor: statusColors[project.status] }}
-                >
-                  {project.status.replace('-', ' ')}
-                </div>
-              </div>
-
-              {project.image && (
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                </div>
-              )}
-
-           
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-
-              <div className="project-tags">
-                {project.tags.map(tag => (
-                  <span key={tag} className="project-tag">{tag}</span>
-                ))}
-              </div>
-
-              <div className="project-actions">
-                {project.buttons.map((button, index) => {
-                  const url = button.action === 'demo' ? project.demo : project.github;
-                  const isSingleButton = project.buttons.length === 1;
-                  
-                  return (
-                    <button 
-                      key={index}
-                      className={`btn ${isSingleButton ? 'btn-primary full-width' : index === 0 ? 'btn-primary' : 'btn-outline'}`}
-                      onClick={() => handleButtonClick(button.action, url)}
-                      disabled={url === '#'}
+              ) : (
+                <>
+                  <div className="project-header">
+                    <div className="project-icon">
+                      <project.icon />
+                    </div>
+                    <div 
+                      className="project-status" 
+                      style={{ backgroundColor: statusColors[project.status] }}
                     >
-                      <button.icon /> {button.text}
-                    </button>
-                  );
-                })}
-              </div>
+                      {project.status.replace('-', ' ')}
+                    </div>
+                  </div>
+
+                  {project.image && (
+                    <div className="project-image">
+                      <img src={project.image} alt={project.title} />
+                    </div>
+                  )}
+
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
+
+                  <div className="project-tags">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="project-tag">{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="project-actions">
+                    {project.clickable ? (
+                      <div className="clickable-indicator">
+                        <FaGithub /> see more
+                      </div>
+                    ) : (
+                      project.buttons.map((button, index) => {
+                        const url = button.action === 'demo' ? project.demo : project.github;
+                        const isSingleButton = project.buttons.length === 1;
+                        
+                        return (
+                          <button 
+                            key={index}
+                            className={`btn ${isSingleButton ? 'btn-primary full-width' : index === 0 ? 'btn-primary' : 'btn-outline'}`}
+                            onClick={() => handleButtonClick(button.action, url)}
+                            disabled={url === '#'}
+                          >
+                            {button.icon && <button.icon />} {button.text}
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

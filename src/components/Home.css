@@ -1,8 +1,6 @@
-image.png/* Home Page Styles */
-
-/* Hero Section - Game Title Screen */
+image.png/* Hero Section - Game Title Screen */
 .hero {
-  display: flex;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   justify-content: center;
@@ -485,6 +483,7 @@ image.png/* Home Page Styles */
     gap: 40px;
     text-align: center;
     padding: 20px 0;
+    min-height: auto;
   }
 
   .hero-title {
@@ -640,7 +639,7 @@ image.png/* Home Page Styles */
   }
   
   .name-gradient {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .profile-avatar {
@@ -651,6 +650,22 @@ image.png/* Home Page Styles */
   
   .centered-profile-card {
     padding: 20px 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-width: 3px;
+  }
+  
+  .name-gradient {
+    font-size: 1.1rem;
+  }
+  
+  .centered-profile-card {
+    padding: 15px 5px;
   }
 }
 
@@ -713,6 +728,8 @@ image.png/* Home Page Styles */
   gap: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 3px;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .name-first {
