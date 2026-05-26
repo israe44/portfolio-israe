@@ -1,6 +1,8 @@
 import React from 'react';
-import { FaCode, FaLaptopCode, FaDatabase, FaServer, FaMobile, FaGithub, FaLinkedin, FaStar, FaPalette } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPhp, FaPython, FaGitAlt, FaDocker, FaGithub, FaLinkedin, FaStar } from 'react-icons/fa';
+import { SiLaravel, SiMysql, SiMongodb } from 'react-icons/si';
 import './About.css';
+import SectionClouds from './SectionClouds';
 
 const About = () => {
   const N8NIcon = (props) => (
@@ -13,34 +15,42 @@ const About = () => {
       focusable="false"
       {...props}
     >
-      <circle cx="32" cy="32" r="30" fill="#FF6A00" />
-      <g fill="#ffffff" fontFamily="Arial, Helvetica, sans-serif" fontWeight="700" fontSize="18" textAnchor="middle">
-        <text x="32" y="38">n8n</text>
+      <g stroke="#EA4B71" strokeWidth="4" strokeLinecap="round">
+        <line x1="10" y1="32" x2="30" y2="32" />
+        <line x1="30" y1="32" x2="50" y2="19" />
+        <line x1="30" y1="32" x2="50" y2="45" />
+      </g>
+      <g fill="#EA4B71">
+        <circle cx="10" cy="32" r="5" />
+        <circle cx="30" cy="32" r="8" />
+        <circle cx="50" cy="19" r="5" />
+        <circle cx="50" cy="45" r="5" />
       </g>
     </svg>
   );
 
   const technologies = [
-    { name: 'HTML', icon: FaCode, category: 'frontend', color: '#E34F26' },
-    { name: 'CSS', icon: FaCode, category: 'frontend', color: '#1572B6' },
-    { name: 'JavaScript', icon: FaCode, category: 'frontend', color: '#F7DF1E' },
-    { name: 'React', icon: FaLaptopCode, category: 'frontend', color: '#61DAFB' },
-    { name: 'Bootstrap', icon: FaMobile, category: 'frontend', color: '#7952B3' },
-    { name: 'PHP', icon: FaServer, category: 'backend', color: '#777BB4' },
-    { name: 'Python', icon: FaServer, category: 'backend', color: '#3776AB' },
-    { name: 'MySQL', icon: FaDatabase, category: 'database', color: '#4479A1' },
-    { name: 'Figma', icon: FaPalette, category: 'design', color: '#FF6B6B' },
-    { name: 'n8n', icon: N8NIcon, category: 'automation', color: '#FF6A00' }
+    { name: 'HTML', icon: FaHtml5, category: 'frontend', color: '#E34F26' },
+    { name: 'CSS', icon: FaCss3Alt, category: 'frontend', color: '#1572B6' },
+    { name: 'JavaScript', icon: FaJs, category: 'frontend', color: '#F7DF1E' },
+    { name: 'React', icon: FaReact, category: 'frontend', color: '#61DAFB' },
+    { name: 'Laravel', icon: SiLaravel, category: 'backend', color: '#FF2D20' },
+    { name: 'PHP', icon: FaPhp, category: 'backend', color: '#777BB4' },
+    { name: 'Python', icon: FaPython, category: 'backend', color: '#3776AB' },
+    { name: 'MySQL', icon: SiMysql, category: 'database', color: '#4479A1' },
+    { name: 'MongoDB', icon: SiMongodb, category: 'database', color: '#47A248' },
+    { name: 'n8n', icon: N8NIcon, category: 'automation', color: '#EA4B71' }
   ];
-  technologies.push({ name: 'Git', icon: FaGithub, category: 'version-control', color: '#F05032' });
+  technologies.push({ name: 'Git', icon: FaGitAlt, category: 'version-control', color: '#F05032' });
   const socialLinks = [
     { name: 'GitHub', icon: FaGithub, url: 'https://github.com/israe44', color: '#333' },
     { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/israeyajib', color: '#0077B5' },
     { name: 'Fiverr', icon: FaStar, url: 'https://fiverr.com/sarou2y', color: '#1DBF73' }
   ];
-  technologies.push({ name: 'Docker', icon: FaServer, category: 'devops', color: '#2496ED' });
+  technologies.push({ name: 'Docker', icon: FaDocker, category: 'devops', color: '#2496ED' });
   return (
     <div className="about page">
+      <SectionClouds variant={1} />
       <div className="container">
         <div className="about-header">
           <h1 className="page-title">About Me</h1>

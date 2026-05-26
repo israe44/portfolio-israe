@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLaptopCode, FaDownload, FaGithub, FaFigma, FaPython } from 'react-icons/fa';
 import './Projects.css';
+import SectionClouds from './SectionClouds';
 
 const Projects = () => {
   const projects = [
@@ -92,12 +93,6 @@ buttons: [
     }
   ];
 
-  const statusColors = {
-    completed: '#4CAF50',
-    'in-progress': '#FF9800',
-    planned: '#9C27B0'
-  };
-
   const handleButtonClick = (action, url) => {
     if (url !== '#') {
       window.open(url, '_blank', 'noopener,noreferrer');
@@ -106,24 +101,10 @@ buttons: [
 
   return (
     <div className="projects page">
+      <SectionClouds variant={2} />
       <div className="container">
         <h1 className="page-title">Projects</h1>
         <p className="page-subtitle">A collection of my development projects and applications</p>
-
-        <div className="projects-stats">
-          <div className="project-stat">
-            <span className="stat-number">{projects.filter(p => p.status === 'completed').length}</span>
-            <span className="stat-label">Completed</span>
-          </div>
-          <div className="project-stat">
-            <span className="stat-number">2</span>
-            <span className="stat-label">In Progress</span>
-          </div>
-          <div className="project-stat">
-            <span className="stat-number">4</span>
-            <span className="stat-label">Planned</span>
-          </div>
-        </div>
 
         <div className="projects-grid">
           {projects.map(project => (
@@ -145,12 +126,6 @@ buttons: [
                   <div className="project-header">
                     <div className="project-icon">
                       <project.icon />
-                    </div>
-                    <div 
-                      className="project-status" 
-                      style={{ backgroundColor: statusColors[project.status] }}
-                    >
-                      {project.status.replace('-', ' ')}
                     </div>
                   </div>
 

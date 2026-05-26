@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaGamepad, FaCalculator, FaChess, FaBrain, FaQuestionCircle, FaCode } from 'react-icons/fa';
 import './Games.css';
+import SectionClouds from './SectionClouds';
 
 const Games = () => {
   const [activeGame, setActiveGame] = useState('calculator');
@@ -32,6 +33,7 @@ const Games = () => {
 
   return (
     <div className="games page">
+      <SectionClouds variant={3} />
       <div className="container">
         <h1 className="page-title">Interactive Games</h1>
         <p className="page-subtitle">A collection of mini-games and tools built with React</p>

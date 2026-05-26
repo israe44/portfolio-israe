@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaAward, FaDownload, FaExternalLinkAlt } from 'react-icons/fa';
 import './Certificates.css';
+import SectionClouds from './SectionClouds';
 
 const Certificates = () => {
   const certificates = [
@@ -37,6 +38,7 @@ const Certificates = () => {
 
   return (
     <div className="certificates page">
+      <SectionClouds variant={4} />
       <div className="container">
         <h1 className="page-title">Certificates</h1>
         <p className="page-subtitle">Professional certifications and achievements</p>

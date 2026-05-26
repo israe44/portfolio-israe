@@ -1,7 +1,6 @@
 // src/App.jsx
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './App.css';
-import { useScrollAnimation } from './hooks/useScrollAnimation';
 import { useTheme } from './hooks/useTheme';
 
 import Header from './components/Header';
@@ -10,7 +9,8 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Games from './components/Games';
 import Certificates from './components/Certificates';
-import PixelDecorations from './components/PixelDecorations';
+import PixelClouds from './components/PixelClouds';
+import Footer from './components/Footer';
 
 function App() {
   const [activePage, setActivePage] = useState('home');
@@ -23,13 +23,6 @@ function App() {
   const gamesRef = useRef(null);
   const certificatesRef = useRef(null);
 
-  // Apply scroll animations
-  const homeScrollRef = useScrollAnimation();
-  const aboutScrollRef = useScrollAnimation();
-  const projectsScrollRef = useScrollAnimation();
-  const gamesScrollRef = useScrollAnimation();
-  const certificatesScrollRef = useScrollAnimation();
-
   // Mapping of page ids to refs
   const sectionRefs = {
     home: homeRef,
@@ -38,6 +31,36 @@ function App() {
     games: gamesRef,
     certificates: certificatesRef
   };
+
+  // Always start at the top on refresh (disable browser scroll restoration)
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Reveal each section as it scrolls into view
+  useEffect(() => {
+    const sections = [homeRef, aboutRef, projectsRef, gamesRef, certificatesRef]
+      .map((r) => r.current)
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // reveal once, then stop watching
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   // Scroll to section function
   const scrollToSection = (sectionId) => {
@@ -52,30 +75,32 @@ function App() {
 
   return (
     <div className="App">
-      <PixelDecorations />
-      <Header activePage={activePage} setActivePage={scrollToSection} toggleTheme={toggleTheme} isDark={isDark} />
+      <PixelClouds />
+<Header activePage={activePage} setActivePage={scrollToSection} toggleTheme={toggleTheme} isDark={isDark} />
 
       <main className="main-content">
-        <section ref={homeRef} id="home" className="page-section" data-scroll-ref={homeScrollRef}>
+        <section ref={homeRef} id="home" className="page-section">
           <Home scrollToSection={scrollToSection} />
         </section>
 
-        <section ref={aboutRef} id="about" className="page-section" data-scroll-ref={aboutScrollRef}>
+        <section ref={aboutRef} id="about" className="page-section">
           <About />
         </section>
 
-        <section ref={projectsRef} id="projects" className="page-section" data-scroll-ref={projectsScrollRef}>
+        <section ref={projectsRef} id="projects" className="page-section">
           <Projects />
         </section>
 
-        <section ref={gamesRef} id="games" className="page-section" data-scroll-ref={gamesScrollRef}>
+        <section ref={gamesRef} id="games" className="page-section">
           <Games />
         </section>
 
-        <section ref={certificatesRef} id="certificates" className="page-section" data-scroll-ref={certificatesScrollRef}>
+        <section ref={certificatesRef} id="certificates" className="page-section">
           <Certificates />
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

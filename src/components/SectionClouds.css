@@ -1,0 +1,56 @@
+/* Little animated clouds living inside each section */
+.section-clouds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sc {
+  position: absolute;
+  opacity: 0.4;
+}
+
+/* base positions */
+.sc-a { top: 7%;  left: 4%;   animation: floatX 22s ease-in-out infinite; }
+.sc-b { top: 16%; right: 7%;  animation: floatX 18s ease-in-out infinite 1.5s; }
+.sc-c { bottom: 12%; left: 10%; animation: floatX 26s ease-in-out infinite 0.8s; }
+.sc-d { bottom: 20%; right: 12%; animation: floatX 20s ease-in-out infinite 2.2s; }
+
+/* variants nudge positions so adjacent sections differ */
+.variant-2 .sc-a { top: 12%; left: 9%; }
+.variant-2 .sc-b { top: 9%;  right: 14%; }
+.variant-2 .sc-c { bottom: 18%; left: 5%; }
+.variant-2 .sc-d { bottom: 9%;  right: 6%; }
+
+.variant-3 .sc-a { top: 18%; left: 14%; }
+.variant-3 .sc-b { top: 22%; right: 5%; }
+.variant-3 .sc-c { bottom: 8%;  left: 7%; }
+.variant-3 .sc-d { bottom: 26%; right: 16%; }
+
+.variant-4 .sc-a { top: 9%;  left: 18%; }
+.variant-4 .sc-b { top: 14%; right: 10%; }
+.variant-4 .sc-c { bottom: 22%; left: 12%; }
+.variant-4 .sc-d { bottom: 12%; right: 4%; }
+
+@keyframes floatX {
+  0%   { transform: translateX(0)    translateY(0);    }
+  50%  { transform: translateX(36px) translateY(-10px); }
+  100% { transform: translateX(0)    translateY(0);    }
+}
+
+/* keep section content above the clouds */
+.page-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .sc-b, .sc-d { display: none; }
+  .sc { opacity: 0.3; }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaCode, FaLaptopCode, FaGamepad, FaAward, FaFileAlt, FaProjectDiagram, FaTerminal } from 'react-icons/fa';
 import './Home.css';
 import Terminal from './Terminal';
+import PixelFlowers from './PixelFlowers';
 
 const Home = ({ scrollToSection }) => {
   const [showTerminal, setShowTerminal] = useState(false);
@@ -28,22 +29,10 @@ const Home = ({ scrollToSection }) => {
             backgroundRepeat: 'no-repeat'
           }}
         >
+          <PixelFlowers />
           <div className="hero-image">
 
             <div className="centered-profile-card">
-              <div className="profile-avatar">
-                <img
-                  src={process.env.PUBLIC_URL + "/image.png"}
-                  alt="Israe Yajib"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    display: 'block',
-                  }}
-                />
-              </div>
 
               <div className="profile-info-enhanced">
                 <div className="name-container">

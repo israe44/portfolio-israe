@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import "./Terminal.css";
 
 const Terminal = () => {
@@ -90,17 +91,26 @@ const Terminal = () => {
     }
   }, [history, minimized]);
 
+  // Lock page scroll while the terminal overlay is open
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, []);
+
   const handleMinimize = () => setMinimized(!minimized);
   const handleMaximize = () => setMinimized(false);
   const handleClose = () => window.location.href = "/";
 
-  return (
+  return createPortal(
     <div className="terminal-page">
       <div className={`terminal-window ${minimized ? "minimized" : ""}`}>
         <div className="terminal-header">
           <div className="terminal-buttons">
             <span className="dot red" onClick={handleClose}></span>{" "}
-           Israe's Terminal 
+           Israe's Terminal
           </div>
           <span className="terminal-title">💜</span>
         </div>
@@ -112,7 +122,7 @@ const Terminal = () => {
             ))}
 
             <div className="terminal-input-line">
-             
+
               <input
                 className="terminal-input"
                 value={input}
@@ -126,7 +136,8 @@ const Terminal = () => {
         )}
       </div>
       <div className="terminal-version">v0.4 💜</div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

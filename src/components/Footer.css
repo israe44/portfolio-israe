@@ -1,0 +1,45 @@
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 28px 16px;
+  border-top: 4px solid var(--pixel-border);
+  background: var(--pixel-jungle-dark);
+  box-shadow: inset 0 4px 0 var(--pixel-jungle-mid);
+}
+
+.footer-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  line-height: 1.9;
+  text-transform: uppercase;
+  color: var(--pixel-green-light);
+}
+
+.pixel-heart {
+  vertical-align: middle;
+  animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.28); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.18); }
+  60%      { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-heart { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .footer-text { font-size: 0.58rem; gap: 9px; }
+}
