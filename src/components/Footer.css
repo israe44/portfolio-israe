@@ -23,6 +23,31 @@
   color: var(--pixel-green-light);
 }
 
+.footer-email {
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--pixel-text-dark, #14241a);
+  text-decoration: none;
+  padding: 8px 14px;
+  background: var(--pixel-green);
+  border: 3px solid var(--pixel-border);
+  box-shadow:
+    inset -2px -2px 0 var(--pixel-green-dark),
+    inset 2px 2px 0 var(--pixel-green-light);
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+
+.footer-email:hover {
+  background: var(--pixel-yellow);
+  color: var(--pixel-text-dark, #14241a);
+  transform: translateY(-2px);
+}
+
 .pixel-heart {
   vertical-align: middle;
   animation: heartBeat 1.2s ease-in-out infinite;
@@ -38,6 +63,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pixel-heart { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .footer-email {
+    position: static;
+    display: block;
+    text-align: center;
+    margin: 16px auto 0;
+    width: fit-content;
+  }
 }
 
 @media (max-width: 480px) {

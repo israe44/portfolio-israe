@@ -6,21 +6,6 @@ import SectionClouds from './SectionClouds';
 const Projects = () => {
   const projects = [
     {
-      id: 1,
-      title: 'MYGYM Website',
-      description: 'My first ever website.',
-      icon: FaLaptopCode,
-      image: `${process.env.PUBLIC_URL}/jim.png`,
-      status: 'completed',
-      tags: ['Html', 'CSS', 'JavaScript'],
-      github: 'https://github.com/israe44/Static-Gym-website',
-      demo: 'https://israe44.github.io/Static-Gym-website/',
-      buttons: [
-        { text: 'View Project', icon: FaLaptopCode, action: 'demo' },
-        { text: 'View Code', icon: FaGithub, action: 'github' }
-      ]
-    },
-    {
       id: 2,
       title: 'Quote Generator',
       description: 'Forget about work and cheer yourself up with inspirational quotes.',
@@ -37,16 +22,16 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Interactive GYM Website',
-      description: 'A dynamic website with interactive features and functionality.',
+      title: 'Bricoli',
+      description: 'A home services platform connecting people with trusted local professionals.',
       icon: FaLaptopCode,
-      image: `${process.env.PUBLIC_URL}/php.webp`,
+      image: '',
       status: 'completed',
-      tags: ['Html', 'CSS', 'JavaScript', 'Dynamic'],
-      github: 'https://github.com/israe44/-Dynamic-WebSite.git',
-      demo: '#',
+      tags: ['React', 'Laravel', 'MongoDB'],
+      github: '#',
+      demo: 'https://bricoli.nimonacode.com/',
       buttons: [
-        { text: 'View Repository', icon: FaGithub, action: 'github' }
+        { text: 'View Project', icon: FaLaptopCode, action: 'demo' }
       ]
     },
     {
@@ -76,7 +61,7 @@ github: 'https://github.com/israe44/Random-GIF-made-with-Python.git', // ✅ Cor
 buttons: [
   { text: 'View Code', icon: FaGithub, action: 'github' }
 ]
-      
+
     },
     {
       id: 6,
@@ -116,24 +101,32 @@ buttons: [
             >
               {project.minimal ? (
                 <div className="minimal-content">
-                  <div className="github-icon-large">
-                    <FaGithub />
+                  <svg
+                    className="cloud-shape"
+                    viewBox="0 0 60 36"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ shapeRendering: 'crispEdges' }}
+                    aria-hidden="true"
+                  >
+                    <rect x="20" y="4"  width="16" height="6" fill="#6b5b95" />
+                    <rect x="36" y="10" width="10" height="6" fill="#6b5b95" />
+                    <rect x="14" y="10" width="28" height="6" fill="#6b5b95" />
+                    <rect x="8"  y="16" width="44" height="6" fill="#5a4690" />
+                    <rect x="4"  y="22" width="52" height="6" fill="#5a4690" />
+                    <rect x="4"  y="28" width="52" height="4" fill="#43356e" />
+                  </svg>
+                  <div className="cloud-inner">
+                    <div className="github-icon-large">
+                      <FaGithub />
+                    </div>
+                    <div className="see-more-text">see more</div>
                   </div>
-                  <div className="see-more-text">→ see more</div>
                 </div>
               ) : (
                 <>
-                  <div className="project-header">
-                    <div className="project-icon">
-                      <project.icon />
-                    </div>
+                  <div className="project-icon-badge">
+                    <project.icon />
                   </div>
-
-                  {project.image && (
-                    <div className="project-image">
-                      <img src={project.image} alt={project.title} />
-                    </div>
-                  )}
 
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.description}</p>
@@ -145,17 +138,12 @@ buttons: [
                   </div>
 
                   <div className="project-actions">
-                    {project.clickable ? (
-                      <div className="clickable-indicator">
-                        <FaGithub /> see more
-                      </div>
-                    ) : (
-                      project.buttons.map((button, index) => {
+                      {project.buttons.map((button, index) => {
                         const url = button.action === 'demo' ? project.demo : project.github;
                         const isSingleButton = project.buttons.length === 1;
-                        
+
                         return (
-                          <button 
+                          <button
                             key={index}
                             className={`btn ${isSingleButton ? 'btn-primary full-width' : index === 0 ? 'btn-primary' : 'btn-outline'}`}
                             onClick={() => handleButtonClick(button.action, url)}
@@ -164,8 +152,7 @@ buttons: [
                             {button.icon && <button.icon />} {button.text}
                           </button>
                         );
-                      })
-                    )}
+                      })}
                   </div>
                 </>
               )}

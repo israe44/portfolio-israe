@@ -31,6 +31,9 @@ const Footer = () => (
     <p className="footer-text">
       MADE WITH <PixelHeart /> BY ISRAE YAJIB
     </p>
+    <a className="footer-email" href="mailto:israe.yab@gmail.com">
+      israe.yab@gmail.com
+    </a>
   </footer>
 );
 
