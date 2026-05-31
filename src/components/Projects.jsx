@@ -2,6 +2,7 @@ import React from 'react';
 import { FaLaptopCode, FaDownload, FaGithub, FaFigma, FaPython } from 'react-icons/fa';
 import './Projects.css';
 import SectionClouds from './SectionClouds';
+import githubGif from '../assets/GitHub-logo.gif';
 
 const Projects = () => {
   const projects = [
@@ -101,24 +102,12 @@ buttons: [
             >
               {project.minimal ? (
                 <div className="minimal-content">
-                  <svg
-                    className="cloud-shape"
-                    viewBox="0 0 60 36"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ shapeRendering: 'crispEdges' }}
-                    aria-hidden="true"
-                  >
-                    <rect x="20" y="4"  width="16" height="6" fill="#6b5b95" />
-                    <rect x="36" y="10" width="10" height="6" fill="#6b5b95" />
-                    <rect x="14" y="10" width="28" height="6" fill="#6b5b95" />
-                    <rect x="8"  y="16" width="44" height="6" fill="#5a4690" />
-                    <rect x="4"  y="22" width="52" height="6" fill="#5a4690" />
-                    <rect x="4"  y="28" width="52" height="4" fill="#43356e" />
-                  </svg>
                   <div className="cloud-inner">
-                    <div className="github-icon-large">
-                      <FaGithub />
-                    </div>
+                    <img
+                      src={githubGif}
+                      alt="GitHub"
+                      className="github-gif-large"
+                    />
                     <div className="see-more-text">see more</div>
                   </div>
                 </div>

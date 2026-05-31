@@ -3,6 +3,7 @@ import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPhp, FaPython, FaGitAlt, FaDocker,
 import { SiLaravel, SiMysql, SiMongodb } from 'react-icons/si';
 import './About.css';
 import SectionClouds from './SectionClouds';
+import batImg from '../assets/bat.png';
 
 const About = () => {
   const N8NIcon = (props) => (
@@ -66,7 +67,9 @@ const About = () => {
             <div className="profile-section">
               <div className="profile-text">
                 <h2>Full Stack Developer & UI/UX Designer</h2>
-                <div className="description-box">
+                <div className="about-card-wrap">
+                  <img src={batImg} alt="" className="about-bat" aria-hidden="true" />
+                  <div className="description-box">
                   <p>
                     "I'm a full-stack developer who just loves the process of building things from the ground up. There's a special kind of magic in crafting a sleek user interface and then diving deep to make the engine behind it hum. For me, it's that perfect blend of creative design and logical problem-solving that makes coding so incredibly rewarding."
                   </p>
@@ -99,6 +102,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
               </div>
             </div>

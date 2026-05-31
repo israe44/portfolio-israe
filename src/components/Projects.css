@@ -510,41 +510,28 @@
   animation: cloudFloat 4s ease-in-out infinite;
 }
 
-.cloud-shape {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
-  transition: transform 0.3s ease;
-}
-
 .cloud-inner {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   padding-top: 8px;
 }
 
-.github-icon-large {
-  font-size: 60px;
-  color: #ffffff;
-  transition: all 0.3s ease;
-  filter: drop-shadow(2px 2px 0 #43356e);
+.github-gif-large {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
 }
 
 @media (hover: hover) {
-  .minimal-card:hover .cloud-shape {
-    transform: scale(1.04);
-  }
-
-  .minimal-card:hover .github-icon-large {
+  .minimal-card:hover .github-gif-large {
     transform: scale(1.12);
-    color: var(--pixel-yellow, #f4d03f);
   }
 
   .minimal-card:hover .see-more-text {
@@ -552,17 +539,12 @@
   }
 }
 
-/* Keep colors stable on tap / focus / active (no stuck yellow) */
+/* Keep stable on tap / focus / active */
 .minimal-card,
 .minimal-card:focus,
 .minimal-card:active {
   -webkit-tap-highlight-color: transparent;
   outline: none;
-}
-
-.minimal-card:active .github-icon-large,
-.minimal-card:focus .github-icon-large {
-  color: #ffffff;
 }
 
 .see-more-text {
@@ -597,8 +579,9 @@
     min-height: 162px;
   }
 
-  .github-icon-large {
-    font-size: 54px;
+  .github-gif-large {
+    width: 115px;
+    height: 115px;
   }
 
   .see-more-text {
@@ -613,8 +596,9 @@
     min-height: 144px;
   }
 
-  .github-icon-large {
-    font-size: 48px;
+  .github-gif-large {
+    width: 100px;
+    height: 100px;
   }
 
   .see-more-text {

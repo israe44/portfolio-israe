@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
-import Games from './components/Games';
+import Hobbies from './components/Hobbies';
 import Certificates from './components/Certificates';
 import PixelClouds from './components/PixelClouds';
 import Footer from './components/Footer';
@@ -20,7 +20,7 @@ function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
-  const gamesRef = useRef(null);
+  const hobbiesRef = useRef(null);
   const certificatesRef = useRef(null);
 
   // Mapping of page ids to refs
@@ -28,7 +28,7 @@ function App() {
     home: homeRef,
     about: aboutRef,
     projects: projectsRef,
-    games: gamesRef,
+    hobbies: hobbiesRef,
     certificates: certificatesRef
   };
 
@@ -42,7 +42,7 @@ function App() {
 
   // Reveal each section as it scrolls into view
   useEffect(() => {
-    const sections = [homeRef, aboutRef, projectsRef, gamesRef, certificatesRef]
+    const sections = [homeRef, aboutRef, projectsRef, hobbiesRef, certificatesRef]
       .map((r) => r.current)
       .filter(Boolean);
 
@@ -91,8 +91,8 @@ function App() {
           <Projects />
         </section>
 
-        <section ref={gamesRef} id="games" className="page-section">
-          <Games />
+        <section ref={hobbiesRef} id="hobbies" className="page-section">
+          <Hobbies />
         </section>
 
         <section ref={certificatesRef} id="certificates" className="page-section">

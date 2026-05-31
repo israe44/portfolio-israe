@@ -5,11 +5,11 @@ image.png/* Hero Section - Game Title Screen */
   gap: 60px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
-  padding: 40px 0;
+  margin-bottom: 40px;
+  padding: 20px 0;
   position: relative;
   overflow: hidden;
-  min-height: 70vh;
+  min-height: 55vh;
 }
 
 .hero-content {
@@ -110,8 +110,8 @@ image.png/* Hero Section - Game Title Screen */
   text-align: center;
   position: relative;
   z-index: 2;
-  padding: 40px;
-  margin-top: 9vh;
+  padding: 20px;
+  margin-top: 0;
   animation: fadeInUp 0.8s ease-out;
 }
 

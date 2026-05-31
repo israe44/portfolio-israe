@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
-import { FaCode, FaBars, FaTimes, FaHome, FaProjectDiagram, FaLaptopCode, FaGamepad, FaFileAlt, FaAward } from 'react-icons/fa';
+import { FaCode, FaBars, FaTimes, FaHome, FaProjectDiagram, FaLaptopCode, FaHeart, FaFileAlt, FaAward } from 'react-icons/fa';
 import './Header.css';
 
 const Header = ({ activePage, setActivePage, toggleTheme, isDark }) => {
@@ -11,8 +11,8 @@ const Header = ({ activePage, setActivePage, toggleTheme, isDark }) => {
     { id: 'home', label: 'Home', icon: FaHome },
     { id: 'about', label: 'About', icon: FaProjectDiagram },
     { id: 'projects', label: 'Projects', icon: FaLaptopCode },
-    { id: 'games', label: 'Games', icon: FaGamepad },
-    
+    { id: 'hobbies', label: 'Hobbies', icon: FaHeart },
+
     { id: 'certificates', label: 'Certificates', icon: FaAward }
   ];
 
