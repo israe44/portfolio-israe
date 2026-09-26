@@ -5,6 +5,8 @@ import gymGif from '../assets/gym-transparent.gif';
 import gymStatic from '../assets/gym-static.png';
 import bookGif from '../assets/book-transparent.gif';
 import bookStatic from '../assets/book-static.png';
+import cookingGif from '../assets/cooking.gif';
+import cookingStatic from '../assets/cooking-static.png';
 
 // Books shown on the open pages, cycled slowly like turning pages.
 const BOOKS = [
@@ -30,6 +32,26 @@ const GymHobby = () => {
   );
 };
 
+const CookingHobby = () => {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <div className="hobby-card">
+      <div
+        className="hobby-tile cooking-tile"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        <img
+          src={hover ? cookingGif : cookingStatic}
+          alt="Cooking"
+          className="cooking-image"
+        />
+      </div>
+      <span className="hobby-label">Cooking</span>
+    </div>
+  );
+};
 const BookHobby = () => {
   const [hover, setHover] = useState(false);
   const [idx, setIdx] = useState(0);
@@ -71,7 +93,6 @@ const BookHobby = () => {
     </div>
   );
 };
-
 const Hobbies = () => {
   return (
     <div className="hobbies page">
@@ -83,6 +104,7 @@ const Hobbies = () => {
         <div className="hobbies-row">
           <GymHobby />
           <BookHobby />
+          <CookingHobby />
         </div>
       </div>
     </div>

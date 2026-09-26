@@ -11,6 +11,10 @@
   animation: twinkle 2.8s ease-in-out infinite;
 }
 
+.s1, .s3, .s5, .s7 {
+  display: none;
+}
+
 /* scattered around the hero, away from the centered text */
 .s1 { top: 14%; left: 10%;  animation-delay: 0s;   }
 .s2 { top: 28%; left: 20%;  animation-delay: 0.6s; }

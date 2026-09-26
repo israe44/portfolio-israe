@@ -77,6 +77,8 @@
   box-shadow: 
     inset -2px -2px 0 rgba(0, 0, 0, 0.3),
     inset 2px 2px 0 rgba(255, 255, 255, 0.2);
+  appearance: none;
+  padding: 0;
 }
 
 .dot:hover {
@@ -250,7 +252,9 @@
   .dot {
     width: 16px;
     height: 16px;
-  }
+    appearance: none;
+  padding: 0;
+}
 }
 
 @media (max-width: 480px) {
@@ -288,7 +292,9 @@
   .dot {
     width: 14px;
     height: 14px;
-  }
+    appearance: none;
+  padding: 0;
+}
   
   .terminal-line {
     margin-bottom: 6px;

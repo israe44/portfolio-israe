@@ -7,13 +7,7 @@ import PixelFlowers from './PixelFlowers';
 const Home = ({ scrollToSection }) => {
   const [showTerminal, setShowTerminal] = useState(false);
 
-  const handleTerminalClick = () => {
-    setShowTerminal(true);
-    setTimeout(() => {
-      const terminal = document.getElementById("terminal-section");
-      if (terminal) terminal.scrollIntoView({ behavior: "smooth" });
-    }, 200);
-  };
+  const handleTerminalClick = () => setShowTerminal(true);
 
   return (
     <div className="home page">
@@ -43,7 +37,7 @@ const Home = ({ scrollToSection }) => {
                 </div>
 
                 <div className="title-stack">
-                  <div className="title-main">Full Stack Web Developer</div>
+                  <div className="title-main">Software Engineering Student</div>
                 </div>
 
                 <div className="profile-actions">
@@ -59,11 +53,7 @@ const Home = ({ scrollToSection }) => {
         </section>
 
         {/* TERMINAL SECTION  */}
-        {showTerminal && (
-          <section id="terminal-section" style={{ marginTop: "80px" }}>
-            <Terminal />
-          </section>
-        )}
+        {showTerminal && <Terminal onClose={() => setShowTerminal(false)} />} 
 
       </div>
     </div>

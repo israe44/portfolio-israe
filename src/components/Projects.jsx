@@ -23,16 +23,15 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Bricoli',
-      description: 'A home services platform connecting people with trusted local professionals.',
+      title: 'Flappy Bird (Java)',
+      description: 'A Java version of the classic Flappy Bird game.',
       icon: FaLaptopCode,
       image: '',
       status: 'completed',
-      tags: ['React', 'Laravel', 'MongoDB'],
-      github: '#',
-      demo: 'https://bricoli.nimonacode.com/',
+      tags: ['Java', 'Game Development'],
+      github: 'https://github.com/israe44/FlappyBird-game-java.git',
       buttons: [
-        { text: 'View Project', icon: FaLaptopCode, action: 'demo' }
+        { text: 'View Code', icon: FaGithub, action: 'github' }
       ]
     },
     {

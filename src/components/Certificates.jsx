@@ -7,12 +7,12 @@ const Certificates = () => {
   const certificates = [
     {
       id: 1,
-      title: 'UI | UX with Figma and Adobe XD',
-      issuer: 'Udemy',
-      date: '2025',
-      image: '/figma.jpg',
-      skills: ['Interface Design'],
-      verificationUrl: 'https://www.udemy.com/certificate/UC-94b85a13-5240-4a2b-a534-5481e57b1027/'
+      title: 'UX/UI & Generative AI',
+      issuer: 'Orange Digital Center Rabat',
+      date: '2026',
+      image: '/orange.jpeg',
+      skills: ['Interface Design', 'Generative AI'],
+      verificationUrl: null
     },
     {
       id: 2,
@@ -32,7 +32,8 @@ const Certificates = () => {
   const handleDownload = (certificate) => {
     const link = document.createElement('a');
     link.href = certificate.image;
-    link.download = `${certificate.title}.jpg`;
+    const extension = certificate.image.split('.').pop();
+    link.download = certificate.title + '.' + extension;
     link.click();
   };
 
@@ -82,12 +83,14 @@ const Certificates = () => {
                 </div>
 
                 <div className="certificate-actions">
-                  <button
-                    className="btn btn-primary verify-btn"
-                    onClick={() => handleVerify(certificate)}
-                  >
-                    <FaExternalLinkAlt /> Verify
-                  </button>
+                  {certificate.verificationUrl && (
+                    <button
+                      className="btn btn-primary verify-btn"
+                      onClick={() => handleVerify(certificate)}
+                    >
+                      <FaExternalLinkAlt /> Verify
+                    </button>
+                  )}
                   <button
                     className="btn btn-outline"
                     onClick={() => handleDownload(certificate)}
