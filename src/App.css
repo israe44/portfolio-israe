@@ -78,7 +78,7 @@ body {
   font-family: 'Press Start 2P', 'Courier New', monospace;
   font-size: 24px;
   margin-bottom: 30px;
-  color: var(--pixel-yellow);
+  color: #fff;
   text-align: center;
   position: relative;
   text-transform: uppercase;
@@ -121,7 +121,7 @@ body {
   font-family: 'Press Start 2P', 'Courier New', monospace;
   font-size: 18px;
   margin: 40px 0 20px;
-  color: var(--pixel-yellow);
+  color: #fff;
   position: relative;
   padding-bottom: 15px;
   text-transform: uppercase;

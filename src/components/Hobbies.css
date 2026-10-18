@@ -139,7 +139,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--pixel-yellow);
+  color: #fff;
   text-shadow: 3px 3px 0 var(--pixel-border);
   text-align: center;
 }

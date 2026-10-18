@@ -117,19 +117,38 @@ const Terminal = ({ onClose }) => {
     <div className="terminal-page">
       <div className="terminal-window">
         <div className="terminal-header">
-          <div className="terminal-buttons">
-            <button className="dot red" type="button" onClick={onClose} aria-label="Close terminal" />
-            <span>Israe's Terminal</span>
+          <button className="dot red" type="button" onClick={onClose} aria-label="Close terminal" />
+          <div className="terminal-heading">
+            <span className="terminal-title">Terminal</span>
+            <span className="terminal-subtitle">israe@portfolio: ~</span>
           </div>
-          <span className="terminal-title">Terminal</span>
+          <span className="terminal-header-space" aria-hidden="true" />
         </div>
 
-        <div className="terminal-body" ref={terminalRef}>
-          {history.map((line, index) => (
-            <div key={index} className="terminal-line">{line || '\u00a0'}</div>
-          ))}
+        <div className="terminal-body" ref={terminalRef} role="log" aria-live="polite" aria-relevant="additions">
+          {history.map((line, index) => {
+            const lineClasses = [
+              'terminal-line',
+              line.startsWith('$ ') && 'terminal-command',
+              line.startsWith('Welcome') && 'terminal-welcome-line',
+              line.startsWith('Type "help"') && 'terminal-hint-line',
+              line.endsWith(':') && 'terminal-response-heading',
+              line.startsWith('Command not found') && 'terminal-error-line',
+              (line.includes('https://') || line.startsWith('Email:')) && 'terminal-link-line'
+            ].filter(Boolean).join(' ');
+
+            return (
+              <div key={index} className={lineClasses} style={{ animationDelay: `${Math.min(index, 10) * 35}ms` }}>
+                {line.startsWith('Type "help"') ? (
+                  <>Type <kbd>help</kbd> to see available commands.</>
+                ) : line || '\u00a0'}
+              </div>
+            );
+          })}
           <div className="terminal-input-line">
-            <span aria-hidden="true">$</span>
+            <span className="terminal-prompt-user">israe@portfolio</span>
+            <span className="terminal-prompt-path">:~</span>
+            <span className="terminal-prompt-symbol" aria-hidden="true">$</span>
             <input
               className="terminal-input"
               value={input}

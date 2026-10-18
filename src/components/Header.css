@@ -173,6 +173,49 @@
     .nav-link {
       padding: 10px 14px;
       font-size: 13px;
-    }
   }
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0 4px;
+  background: linear-gradient(180deg, rgba(5, 2, 8, 0.82), rgba(5, 2, 8, 0));
+}
+
+.nav-link {
+  color: #e5d2f5;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: #190b22;
+  border-color: #8a27bb;
+  box-shadow: inset -2px -2px 0 #260638, inset 2px 2px 0 #662090;
+}
+
+.nav-list li.active .nav-link {
+  color: #fff;
+  background: #4d0877;
+  border-color: #20052f;
+  box-shadow: inset -2px -2px 0 #31044b, inset 2px 2px 0 #9c42d0;
+}
+
+.mobile-menu-toggle {
+  background: #4d0877;
+  color: #fff;
+  box-shadow: inset -2px -2px 0 #31044b, inset 2px 2px 0 #9c42d0;
+}
+
+.mobile-menu-toggle:hover {
+  background: #7413a6;
+}
+
+@media (max-width: 968px) {
+  .nav {
+    background: #100815;
+    border-color: #5d197e;
+  }
+}
   
